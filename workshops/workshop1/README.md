@@ -21,7 +21,7 @@ Open [`index.html`](index.html) in any web browser or visit the live GitHub Page
 
 ### Option 2: Open in Google Colab
 Launch the pre-configured notebook directly in Google Colab:
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lowellmonis/msu-ai-workshops/blob/main/workshops/workshop1/data_lineage_inspector.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop1/data_lineage_inspector.ipynb)
 
 ### Option 3: Run Locally via Python & Jupyter
 ```bash

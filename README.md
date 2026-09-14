@@ -82,7 +82,7 @@ We welcome contributions, bug fixes, and additional workshop modules!
 
 ## 🐛 Opening Issues
 To report a bug or suggest a new feature:
-1. Go to the repository **[Issues](https://github.com/lowellmonis/msu-ai-workshops/issues)** tab on GitHub.
+1. Go to the repository **[Issues](https://github.com/lowell-monis/msu-ai-workshops/issues)** tab on GitHub.
 2. Click **New Issue** and describe the issue with reproduction steps.
 
 ## 🔀 Submitting Pull Requests (PRs)
