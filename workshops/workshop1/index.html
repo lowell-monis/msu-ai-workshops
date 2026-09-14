@@ -294,61 +294,49 @@ git push origin main</pre>
     <!-- Repository File Organization Guide Section -->
     <section class="section" id="repo-org">
       <span class="section-label">Repository Architecture</span>
-      <h2 class="section-title">How to Organize Files Inside an ML Repository</h2>
-      <p class="section-subtitle">Best practices for structuring scripts, datasets, notebooks, and git ignore rules inside a clean machine learning codebase.</p>
+      <h2 class="section-title">Recommended <span style="color:var(--color-primary);">ML Repository Structure</span></h2>
+      <p class="section-subtitle">A clean, industry-standard folder hierarchy for organizing code, notebooks, models, and data in your GitHub projects.</p>
 
       <div class="simulator-workspace" style="padding:2rem;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clean Repository Directory Layout</h3>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Standard Professional Folder Hierarchy</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">
+            Rearrange flat starter template files into clean directory folders so your GitHub repository follows production engineering practices:
+          </p>
           <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">
-palmer-penguins-ml-template/
-├── README.md                   # Project Overview, Setup Commands & Model Card
-├── .gitignore                  # Ignore rules for bytecode, caches, & model binaries
-├── train.py                    # 5-stage Data Lifecycle training pipeline script
-├── predict.py                  # Real-time CLI inference script
-└── penguin_classifier.ipynb    # Notebook alternative (EDA & Plotly visual charts)
-          </pre>
+my-ml-project/
+├── README.md               # Project overview, setup commands, & model summary
+├── .gitignore              # Ignore rules for cache, raw data, and model binaries
+├── requirements.txt        # Python package dependencies
+├── data/                   # Dataset storage directory (never committed to git)
+│   ├── raw/                # Unmodified raw source data
+│   └── processed/          # Cleaned & imputed dataset files
+├── notebooks/              # Jupyter notebooks for visual EDA & interactive demos
+├── src/                    # Modular Python source code & pipeline scripts
+│   ├── data/               # Ingestion, cleaning, & preprocessing modules
+│   ├── models/             # Model training, evaluation, & prediction scripts
+│   └── utils/              # Shared helper functions & utility scripts
+├── models/                 # Saved model weights & serialized binaries (.pkl)
+└── tests/                  # Unit tests & verification scripts</pre>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. File Organization Rules & Data Governance</h3>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Core Folder Organization Guidelines</h3>
           <ul style="padding-left:1.2rem; color:var(--text-main); margin-bottom:1.5rem;">
-            <li style="margin-bottom:0.5rem;"><strong>Never Commit Raw Data CSVs</strong>: Raw datasets should never be committed directly to git history. Load data dynamically via public URLs (<code>DATA_URL = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</code>) or download helper scripts.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Organize Flat Starter Code</strong>: The template repository provides a flat starter layout. Attendees will structure the files into clean project directories (e.g. <code>src/</code>, <code>notebooks/</code>, <code>models/</code>) following this guide.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Provide a Notebook Alternative</strong>: Include <code>penguin_classifier.ipynb</code> for live demos, while maintaining clean Python scripts (<code>train.py</code>, <code>predict.py</code>) for reproducible execution.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Ignore Generated Binary Artifacts</strong>: Always list serialized model binaries (<code>penguin_model.pkl</code>) and bytecode (<code>__pycache__</code>) in <code>.gitignore</code>.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Keep Source Code in <code>src/</code></strong>: Place pipeline scripts (e.g. data ingestion, model training, prediction interfaces) inside a dedicated source folder.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Isolate Notebooks in <code>notebooks/</code></strong>: Keep exploratory Jupyter notebooks separated from production Python scripts so your root directory stays clean.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Isolate Data in <code>data/</code> (Git-Ignored)</strong>: Store local dataset files inside <code>data/raw/</code> or <code>data/processed/</code>, and ensure the <code>data/</code> folder is listed in <code>.gitignore</code>.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Store Serialized Models in <code>models/</code></strong>: Save serialized model artifacts (like <code>.pkl</code> or <code>.onnx</code> files) in a <code>models/</code> directory (also git-ignored).</li>
           </ul>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Recommended Project Enhancement Challenges</h3>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Recommended Repo Enhancement Challenges</h3>
           <ul style="padding-left:1.2rem; color:var(--text-main);">
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature <code>bill_ratio = bill_length_mm / bill_depth_mm</code> in <code>train.py</code> and test if classifier accuracy improves.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Classifier Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in <code>penguin_classifier.ipynb</code>.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Custom Data Download Script</strong>: Write a <code>download_data.py</code> script using <code>urllib</code> or <code>requests</code> to fetch and save data locally outside git tracking.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Folder Migration</strong>: Create <code>src/</code>, <code>notebooks/</code>, and <code>models/</code> folders in your repo and move flat starter files into their respective directories.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Feature Engineering</strong>: Add a new feature calculation in your training script and test if classifier accuracy improves.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Multi-Model Evaluation</strong>: Compare performance across Decision Trees, Random Forests, and Logistic Regression models.</li>
           </ul>
 
         </div>
       </div>
-    </section>
-
-    <!-- References Section -->
-    <section class="section" id="references">
-      <span class="section-label">Academic & Dataset Grounding</span>
-      <h2 class="section-title">📚 References</h2>
-      <p class="section-subtitle">All workshop materials, classification pipelines, and datasets are grounded in scientific literature and data science frameworks.</p>
-
-      <ol class="references-list">
-        <li>
-          K. B. Gorman, T. D. Williams, and W. R. Fraser, "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus <em>Pygoscelis</em>)," <em>PLoS ONE</em>, vol. 9, no. 3, p. e90081, 2014.
-        </li>
-        <li>
-          C. O'Neil, <em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>. New York, NY, USA: Crown Publishing Group, 2016.
-        </li>
-        <li>
-          C. D'Ignazio and L. F. Klein, <em>Data Feminism</em>. Cambridge, MA, USA: MIT Press, 2020.
-        </li>
-        <li>
-          E. Yudkowsky and N. Soares, <em>If Anyone Builds It, Everyone Dies: Why Superhuman AI Would Kill Us All</em>. New York, NY, USA: Little, Brown and Company, 2025.
-        </li>
-      </ol>
     </section>
 
   </div>
