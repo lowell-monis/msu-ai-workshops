@@ -118,7 +118,7 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
     <section class="section" id="tasks">
       <span class="section-label">Step-by-Step Task Guide</span>
       <h2 class="section-title">Workshop Tasks & <span style="color:var(--color-primary);">Completion Instructions</span></h2>
-      <p class="section-subtitle">Follow these instructions step-by-step to complete Workshop 01 and prepare your project repository for submission.</p>
+      <p class="section-subtitle">Follow these instructions step-by-step to fill in the <code># TODO:</code> exercise blocks in your starter repository and prepare your project for submission.</p>
 
       <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
         
@@ -141,14 +141,14 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
         <div class="workshop-card" style="padding:1.5rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 2</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Audit Missing Data & Dynamic Data Ingestion</h3>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Complete Data Ingestion & Imputation (Exercises 1 & 2)</h3>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Inspect <code>train.py</code> or open <code>penguin_classifier.ipynb</code>. Notice how raw data is dynamically loaded from the public raw URL without committing CSV data to Git:
+            Open <code>penguin_classifier.ipynb</code> or <code>train.py</code> and locate the <code># TODO:</code> blocks for Stages 1 and 2:
           </p>
           <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
-            <li>Identify missing value frequencies across bill length, bill depth, flipper length, body mass, and sex.</li>
-            <li>Observe how median imputation for numeric attributes and mode imputation for categorical attributes preserve all 344 records without row deletion.</li>
+            <li>Fill in <code>pd.read_csv(DATA_URL)</code> to dynamically fetch the dataset without committing CSV files to Git.</li>
+            <li>Write the code to calculate missing counts (<code>df.isnull().sum()</code>) and apply median imputation for numeric attributes and mode imputation for <code>sex</code>.</li>
           </ul>
         </div>
 
@@ -156,14 +156,15 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
         <div class="workshop-card" style="padding:1.5rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 3</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Train Model & Evaluate Classification Metrics</h3>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Implement Model Training & Evaluation (Exercises 3, 4 & 5)</h3>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Run <code>python train.py</code> in your terminal. Examine the output accuracy score, per-species classification report, and feature importances:
+            Fill in the <code># TODO:</code> blocks in <code>train.py</code> or <code>penguin_classifier.ipynb</code> to construct your classifier pipeline:
           </p>
           <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
-            <li>Verify overall model classification accuracy (exceeds 95%).</li>
-            <li>Compare precision, recall, and F1-scores across Adelie, Chinstrap, and Gentoo species cohorts.</li>
+            <li>Define feature matrix <code>X</code> and target label <code>y</code>.</li>
+            <li>Perform a stratified split using <code>train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)</code>.</li>
+            <li>Instantiate <code>RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42)</code>, fit on training data, and generate classification metrics.</li>
           </ul>
         </div>
 
@@ -171,12 +172,14 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
         <div class="workshop-card" style="padding:1.5rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Run CLI Predictions</h3>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Complete Model Serialization & CLI Prediction (Exercises 6 & 7)</h3>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Test real-time inference using <code>predict.py</code> in your terminal:
+            Fill in the <code># TODO:</code> blocks in <code>predict.py</code> to load the serialized <code>penguin_model.pkl</code> artifact and compute predictions:
           </p>
           <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
+# Execute CLI inference after completing the # TODO: blocks
+python train.py
 python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
         </div>
 
@@ -187,11 +190,11 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Structure Your Repository & Submit Project Link</h3>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo Guide</a> to organize your starter repository into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to GitHub:
+            Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo Guide</a> to organize your completed starter files into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to GitHub:
           </p>
           <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:0.75rem; overflow-x:auto;">
 git add .
-git commit -m "Organize ML project repository architecture"
+git commit -m "Complete ML classifier workshop pipeline and folder structure"
 git push origin main</pre>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
             Finally, submit your repository link on the <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" style="color:var(--color-primary); font-weight:600;">MSU AI Club Event Page</a>!
