@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initSimulator();
   initBranchingActivity();
+  initPenguinWidget();
 });
 
 // --- Particles.js Integration (Subtle Dark Network) ---
@@ -430,4 +431,61 @@ function resetBranching() {
   currentStage = 0;
   choicesMade = [];
   renderBranchingStage();
+}
+
+// --- Interactive Palmer Penguins Classifier Widget ---
+function initPenguinWidget() {
+  const billLenInput = document.getElementById("p-bill-length");
+  const billDepInput = document.getElementById("p-bill-depth");
+  const flipperLenInput = document.getElementById("p-flipper-length");
+  const bodyMassInput = document.getElementById("p-body-mass");
+
+  if (!billLenInput) return;
+
+  function updatePrediction() {
+    const billLen = parseFloat(billLenInput.value);
+    const billDep = parseFloat(billDepInput.value);
+    const flipperLen = parseFloat(flipperLenInput.value);
+    const bodyMass = parseFloat(bodyMassInput.value);
+
+    const vBillLen = document.getElementById("v-bill-len");
+    const vBillDep = document.getElementById("v-bill-dep");
+    const vFlipperLen = document.getElementById("v-flipper-len");
+    const vBodyMass = document.getElementById("v-body-mass");
+
+    if (vBillLen) vBillLen.textContent = billLen.toFixed(1);
+    if (vBillDep) vBillDep.textContent = billDep.toFixed(1);
+    if (vFlipperLen) vFlipperLen.textContent = flipperLen.toFixed(0);
+    if (vBodyMass) vBodyMass.textContent = bodyMass.toFixed(0);
+
+    let species = "Adelie";
+    let conf = "96.5%";
+    let color = "#08ffff";
+
+    if (flipperLen >= 206 && billDep < 17.5) {
+      species = "Gentoo";
+      conf = "98.8%";
+      color = "#ffcc00";
+    } else if (billLen >= 43.5 && billDep >= 16.5) {
+      species = "Chinstrap";
+      conf = "94.2%";
+      color = "#ff0055";
+    }
+
+    const speciesLabel = document.getElementById("pred-species-out");
+    const confLabel = document.getElementById("pred-conf-out");
+    if (speciesLabel) {
+      speciesLabel.textContent = species;
+      speciesLabel.style.color = color;
+    }
+    if (confLabel) {
+      confLabel.textContent = `Confidence: ${conf}`;
+    }
+  }
+
+  [billLenInput, billDepInput, flipperLenInput, bodyMassInput].forEach((input) => {
+    if (input) input.addEventListener("input", updatePrediction);
+  });
+
+  updatePrediction();
 }

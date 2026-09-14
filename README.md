@@ -56,7 +56,7 @@ body {
 
 | Subdirectory | Topic | Presenter(s) | Date / Slot | Key Concepts | Artifact Export |
 |---|---|---|---|---|---|
-| **[`workshops/workshop1/`](workshops/workshop1/)** | *The Art of the Data Lifecycle: Storytelling in AI* | Lowell Monis & Mariah Haymer | Sept 14, 2026 @ STEM 3202 | Data Lineage, Cleaning Audit [2], Disparate Impact [1], Feedback Loops [1] | `audit_summary.md` |
+| **[`workshops/workshop1/`](workshops/workshop1/)** | *The Art of the Data Lifecycle: Palmer Penguins ML Classifier* | Lowell Monis & Mariah Haymer | Sept 14, 2026 @ STEM 3202 | Data Lifecycle, Random Forest, Imputation, CLI Inference | `penguin_model.pkl` |
 | **`workshops/workshop2/`** | *A Bayesian Perspective on Machine Learning* | Lowell Monis & Ishan Sinha | Sept 21, 2026 @ STEM 3202 | Bayesian ML, Probabilistic Modeling, Uncertainty Quant | `bayesian_ml_artifact.md` |
 | **`workshops/workshop3/`** | *Reinforcement Learning: Building a Game-Playing Agent* | Carson Breissinger | Sept 28, 2026 @ STEM 3202 | Q-Learning, Deep Q-Networks (DQN), PyTorch, Gymnasium | `rl_agent_checkpoint.pth` |
 

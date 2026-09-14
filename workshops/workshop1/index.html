@@ -1,31 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="editorial-dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop 01: The Art of the Data Lifecycle | MSU AI Club</title>
-  <meta name="description" content="MSU AI Club Workshop 01: The Data Lineage Inspector & Feedback Loop Simulator. Explore data storytelling, disparate impact, and recursive bias loops.">
+  <title>MSU AI Club | Workshop 01: Palmer Penguins ML Classifier & Data Lifecycle Pipeline</title>
+  <meta name="description" content="MSU AI Club Workshop 01: Palmer Penguins ML Classifier & Data Lifecycle Pipeline. Work through a real-world classification project with pandas, scikit-learn, and Plotly.">
   
   <!-- Rubik Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   
-  <!-- CSS Styles -->
-  <link rel="stylesheet" href="../../styles.css">
-  
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
-  <!-- Plotly.js for Visualizations -->
-  <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="../../styles.css">
 </head>
 <body>
 
-  <!-- Particles.js Canvas Background -->
+  <!-- Background Particle Network -->
   <div id="particles-js"></div>
 
-  <!-- Site Header -->
+  <!-- Header Navigation -->
   <header class="site-header">
     <div class="header-inner">
       <a href="../../index.html" class="wordmark">
@@ -33,9 +30,10 @@
       </a>
       <nav class="site-nav">
         <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
-        <a href="#reproduce" class="nav-link">Run Guide</a>
-        <a href="#simulator" class="nav-link active">Interactive Lab</a>
-        <a href="#references" class="nav-link">References</a>
+        <a href="#reproduce" class="nav-link">Quickstart Guide</a>
+        <a href="#predictor" class="nav-link">Interactive Predictor</a>
+        <a href="#lifecycle" class="nav-link">Data Lifecycle</a>
+        <a href="#gitguide" class="nav-link">Repo Guide</a>
         <a href="https://github.com/lowell-monis/msu-ai-workshops" target="_blank" class="nav-link" rel="noopener">
           <i class="fab fa-github"></i> GitHub
         </a>
@@ -51,25 +49,25 @@
         <span class="hero-label">WORKSHOP 01 · SEPTEMBER 14, 2026 @ 6:00 PM · STEM 3202 · 100 PTS</span>
       </div>
       
-      <h1 class="hero-name">The Art of the Data Lifecycle:<br><span style="color:var(--color-primary);">Storytelling in AI</span></h1>
+      <h1 class="hero-name">The Art of the Data Lifecycle:<br><span style="color:var(--color-primary);">Palmer Penguins ML Classifier</span></h1>
       
       <p class="hero-headline">
-        Every AI model tells a story about the data it feeds on [1], [2]. Explore the hidden narrative choices, human impacts, and critical stages of the data lifecycle: from collection and curation [2] to deployment [3] and recursive feedback loops [1]. Learn how upstream data decisions shape real-world consequences and discover the ethical frameworks essential for modern practitioners [1]–[4].
+        Every AI model tells a story about the data it feeds on. Work through a complete, real-world Machine Learning classification pipeline using the famous Palmer Penguins dataset. Inspect missing biological signals, train a Random Forest classifier, evaluate model performance, and deploy real-time predictions.
       </p>
 
       <p class="hero-tagline">
-        ⚡ <strong>Mini Project:</strong> Run interactive bias audit simulations, adjust human oversight sampling rates, and download the analysis notebook and dataset.
+        ⚡ <strong>Template Repository Project:</strong> Fork or clone this repository to build a complete Python ML project (`penguins.csv`, `train.py`, `predict.py`, `penguin_classifier.ipynb`, `verify_pipeline.py`) ready to publish on your personal GitHub profile!
       </p>
 
       <div class="hero-actions">
-        <a href="https://colab.research.google.com/github/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop1/data_lineage_inspector.ipynb" target="_blank" rel="noopener" class="btn btn-solid">
-          <i class="fas fa-external-link-alt"></i> Open in Google Colab
+        <a href="https://github.com/lowell-monis/msu-ai-workshops" target="_blank" rel="noopener" class="btn btn-solid">
+          <i class="fab fa-github"></i> Fork Template Repository
         </a>
-        <a href="data_lineage_inspector.ipynb" download class="btn btn-ghost">
+        <a href="penguin_classifier.ipynb" download class="btn btn-ghost">
           <i class="fas fa-download"></i> Download Notebook (.ipynb)
         </a>
-        <a href="applicant_data_raw.csv" download class="btn btn-ghost">
-          <i class="fas fa-table"></i> Download Raw Data (.csv)
+        <a href="penguins.csv" download class="btn btn-ghost">
+          <i class="fas fa-table"></i> Download Dataset (.csv)
         </a>
         <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener" class="btn btn-accent">
           <i class="fas fa-ticket-alt"></i> AI Club Events
@@ -77,212 +75,223 @@
       </div>
     </section>
 
-    <!-- How to Reproduce Results & Run Workshop 1 Section -->
+    <!-- Quickstart & Reproduction Guide Section -->
     <section class="section" id="reproduce">
       <span class="section-label">Execution & Reproduction Guide</span>
-      <h2 class="section-title">How to Reproduce Results & Run Workshop 1</h2>
-      <p class="section-subtitle">Follow these instructions to run the analysis pipeline locally, in browser, or via Google Colab.</p>
+      <h2 class="section-title">Quickstart: Run the ML Pipeline Locally</h2>
+      <p class="section-subtitle">Follow these step-by-step terminal commands to execute the pipeline, train the classifier, and run CLI predictions.</p>
 
       <div class="simulator-workspace" style="padding:2rem;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 1: In-Browser Interactive Suite (Zero Installation)</h3>
-          <p style="color:var(--text-muted); margin-bottom:1rem;">
-            You can run the interactive simulation below. Execute cells, adjust the <strong>Human Oversight Audit Slider</strong> (0% to 50%), and download <code>audit_summary.md</code>.
-          </p>
-
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 2: Google Colab</h3>
-          <p style="color:var(--text-muted); margin-bottom:1rem;">
-            Launch the pre-configured notebook in Google Colab:
-            <a href="https://colab.research.google.com/github/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop1/data_lineage_inspector.ipynb" target="_blank" rel="noopener" style="color:var(--color-primary); margin-left:0.5rem;">
-              <i class="fas fa-external-link-alt"></i> Open Colab Notebook
-            </a>
-          </p>
-
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 3: Run Locally via Python & Jupyter</h3>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem;">
-# Navigate to Workshop 1 directory
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 1: Run Locally via Python Terminal</h3>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
+# 1. Navigate to Workshop 1 directory
 cd msu-ai-workshops/workshops/workshop1
 
-# Install dependencies
+# 2. Install required Python packages
 pip install pandas numpy scikit-learn plotly jupyter
 
-# Generate synthetic dataset (if needed)
-python generate_dataset.py
+# 3. Execute the Model Training Pipeline (creates penguin_model.pkl)
+python train.py
 
-# Test notebook pipeline
-python verify_notebook.py
+# 4. Run CLI Predictions on custom penguin measurements
+python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
 
-# Launch Jupyter Notebook
-jupyter notebook data_lineage_inspector.ipynb
+# 5. Run Automated Pipeline Verification Tests
+python verify_pipeline.py
+          </pre>
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 2: Interactive Jupyter Notebook</h3>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
+# Launch Jupyter Notebook interface
+jupyter notebook penguin_classifier.ipynb
           </pre>
           <p style="color:var(--text-muted); font-size:0.88rem;">
-            *Expected Outcome*: Running <code>verify_notebook.py</code> prints <code>SUCCESS: All verification steps PASSED!</code> and outputs <code>audit_summary_example.md</code>.
+            *Expected Outcome*: Running <code>verify_pipeline.py</code> passes all 4 automated unit test stages, achieving <strong>>95% accuracy</strong> on species classification.
           </p>
 
         </div>
       </div>
     </section>
 
-    <!-- Workshop 01 Interactive Web Suite -->
-    <section class="section" id="simulator">
-      <span class="section-label">Workshop 01 Interactive Laboratory</span>
-      <h2 class="section-title">The Data Lineage Inspector & <span style="color:var(--color-primary);">Feedback Loop Simulator</span></h2>
-      <p class="section-subtitle">Execute the pipeline in your browser. Inspect missing features, audit demographic cleaning impacts, and test human oversight sampling rates in real time.</p>
+    <!-- Interactive In-Browser Penguin Species Predictor Section -->
+    <section class="section" id="predictor">
+      <span class="section-label">Live Demonstration</span>
+      <h2 class="section-title">Interactive <span style="color:var(--color-primary);">Penguin Species Predictor</span></h2>
+      <p class="section-subtitle">Adjust biological measurement sliders below to see live species predictions generated by the Random Forest model.</p>
 
-      <div class="simulator-workspace">
-        <div class="tabs-nav">
-          <button class="tab-btn active" data-tab="tab-sim">💻 Interactive Cell Simulator</button>
-          <button class="tab-btn" data-tab="tab-branch">🔀 "Choose the Data's Fate"</button>
-          <button class="tab-btn" data-tab="tab-git">🐙 Project Repo & PR Guide</button>
-        </div>
-
-        <!-- Tab 1: Simulator -->
-        <div class="tab-content active" id="tab-sim">
+      <div class="simulator-workspace" style="padding:2rem;">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:start;">
           
-          <!-- Cell 1 -->
-          <div class="cell-block">
-            <div class="cell-header">
-              <span class="cell-title">Cell 1: Part 1 — Loading the Pipeline & Inspecting Raw Data [2]</span>
-              <span class="wordmark-badge">Executed</span>
-            </div>
-            <div class="cell-code"># Load dataset locally or from raw GitHub backup
-df = pd.read_csv("applicant_data_raw.csv")
-print(f"Dataset Shape: {df.shape[0]} rows, {df.shape[1]} columns")
-display(df.head())</div>
-            <div style="padding:1.25rem;">
-              <p style="font-size:0.88rem; font-weight:600; color:var(--text-bright); margin-bottom:0.5rem;">Raw Data Matrix Preview (First 5 Rows):</p>
-              <div id="raw-data-preview"></div>
-            </div>
-            <div class="cell-input-box">
-              <label for="q1-input" style="font-size:0.88rem; font-weight:600; color:var(--color-primary); display:block; margin-bottom:0.5rem;">
-                📝 Student Prompt Q1: What variables are completely missing from this dataset that might matter for an applicant? [2]
-              </label>
-              <textarea id="q1-input" class="prompt-textarea" placeholder="E.g., The dataset lacks non-traditional financial metrics like rental payment history, caregiving duties, and gig-economy income stability [2]."></textarea>
-            </div>
-          </div>
-
-          <!-- Cell 2 -->
-          <div class="cell-block">
-            <div class="cell-header">
-              <span class="cell-title">Cell 2: Part 2 — The Editing Room (Data Cleaning Audit) [2]</span>
-              <span class="wordmark-badge">Stage 1 & 2 Audit</span>
-            </div>
-            <div class="cell-code"># TODO: Fill missing numeric columns with the median instead of dropping them
-df_cleaned = df.fillna(df.median(numeric_only=True))
-print(f"Naïve dropna() removed 153 rows (25% of Group B lost). Median fill preserved 100% of rows.")</div>
-            <div class="cell-output">
-              <p style="color:#10b981; font-weight:bold;">✅ Median Imputation Logic Verified!</p>
-              <p style="color:var(--text-muted); font-size:0.85rem; margin-top:0.3rem;">
-                Naïve deletion eliminated 25% of non-traditional Group B applicants due to missing traditional credit scores [2]. Median imputation preserved all records.
-              </p>
-            </div>
-          </div>
-
-          <!-- Cell 3 -->
-          <div class="cell-block">
-            <div class="cell-header">
-              <span class="cell-title">Cell 3: Part 3 — Model Training & Disparate Impact (WMD Framework) [1]</span>
-              <span class="wordmark-badge">Stage 3 & 4 Audit</span>
-            </div>
-            <div class="cell-code">model = DecisionTreeClassifier(max_depth=4, random_state=42)
-model.fit(X, y)
-disparate_impact_ratio = approval_rate_B / approval_rate_A</div>
-            <div id="disparate-impact-plot" class="plot-container"></div>
-            <div class="cell-input-box">
-              <label for="q2-input" style="font-size:0.88rem; font-weight:600; color:var(--color-primary); display:block; margin-bottom:0.5rem;">
-                📝 Student Prompt Q2: Explain 'Opacity' and 'Damage' for Group B based on the output metrics above [1].
-              </label>
-              <textarea id="q2-input" class="prompt-textarea" placeholder="E.g., Group B suffers from lower approval due to unmeasured non-traditional signals (Damage). The black box classifier hides feature weighting (Opacity) [1]."></textarea>
-            </div>
-          </div>
-
-          <!-- Cell 4 -->
-          <div class="cell-block">
-            <div class="cell-header">
-              <span class="cell-title">Cell 4: Part 4 — Closing the Loop (Recursive Bias Simulation) [1]</span>
-              <span class="wordmark-badge">Stage 5 Audit</span>
-            </div>
-            <div class="cell-code"># TODO: Implement a manual review override for bottom-tier risk scores
-simulated_next_gen_data = apply_human_oversight(model_predictions, audit_rate=0.10)</div>
+          <!-- Controls Column -->
+          <div>
+            <h3 style="color:var(--text-bright); font-size:1.2rem; margin-bottom:1rem;">Biological Input Parameters</h3>
             
-            <div style="padding:1rem 1.25rem; background:#08080c; border-top:1px solid var(--border-color); display:flex; align-items:center; gap:1rem;">
-              <label for="audit-slider" style="font-size:0.9rem; font-weight:600;">🎛️ Human Oversight Audit Slider: <span id="audit-val-label" style="color:var(--color-primary);">10%</span></label>
-              <input type="range" id="audit-slider" min="0" max="0.5" step="0.05" value="0.10" style="flex:1; accent-color:var(--color-primary);">
+            <div style="margin-bottom:1.25rem;">
+              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
+                <span>Bill Length (mm)</span>
+                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-bill-len">47.5</span>
+              </label>
+              <input type="range" id="p-bill-length" min="32.0" max="60.0" step="0.5" value="47.5" style="width:100%;">
             </div>
 
-            <div id="feedback-loop-plot" class="plot-container"></div>
+            <div style="margin-bottom:1.25rem;">
+              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
+                <span>Bill Depth (mm)</span>
+                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-bill-dep">15.0</span>
+              </label>
+              <input type="range" id="p-bill-depth" min="13.0" max="22.0" step="0.5" value="15.0" style="width:100%;">
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
+                <span>Flipper Length (mm)</span>
+                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-flipper-len">217</span>
+              </label>
+              <input type="range" id="p-flipper-length" min="170" max="235" step="1" value="217" style="width:100%;">
+            </div>
+
+            <div style="margin-bottom:1.25rem;">
+              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
+                <span>Body Mass (g)</span>
+                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-body-mass">5000</span>
+              </label>
+              <input type="range" id="p-body-mass" min="2700" max="6300" step="50" value="5000" style="width:100%;">
+            </div>
           </div>
 
-          <!-- Cell 5 -->
-          <div class="cell-block">
-            <div class="cell-header">
-              <span class="cell-title">Cell 5: Part 5 — Exporting Executive Audit Summary</span>
-              <span class="wordmark-badge">Summary Exporter</span>
-            </div>
-            <div class="cell-code">export_audit_summary(file_name="audit_summary.md")</div>
-            <div style="padding:1.5rem; text-align:center;">
-              <button class="btn btn-accent" id="export-artifact-btn" style="font-size:1rem; padding:0.85rem 2rem;">
-                📥 Export Executive Audit Summary (audit_summary.md)
-              </button>
+          <!-- Prediction Result Box Column -->
+          <div style="background:#040406; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:2rem; text-align:center;">
+            <span style="font-size:0.8rem; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Model Prediction Result</span>
+            <div style="font-size:2.8rem; font-weight:700; margin:1rem 0; color:var(--color-primary);" id="pred-species-out">Gentoo</div>
+            <div style="font-size:1rem; color:var(--text-muted); margin-bottom:1.5rem;" id="pred-conf-out">Confidence: 98.8%</div>
+            
+            <div style="text-align:left; font-size:0.85rem; background:#080b12; padding:1rem; border-radius:var(--radius-sm); border:1px solid rgba(8,255,255,0.15);">
+              <div style="color:var(--color-primary); font-weight:600; margin-bottom:0.5rem;">Species Characteristics Key:</div>
+              <ul style="padding-left:1.2rem; margin:0; line-height:1.6; color:var(--text-main);">
+                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (< 43mm), high bill depth (> 17mm), smaller flippers.</li>
+                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (> 45mm), high bill depth (> 17mm), medium flippers.</li>
+                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (> 45mm), shallow bill depth (< 16mm), large flippers (> 205mm).</li>
+              </ul>
             </div>
           </div>
 
         </div>
+      </div>
+    </section>
 
-        <!-- Tab 2: Branching -->
-        <div class="tab-content" id="tab-branch">
-          <div style="margin-bottom:1.5rem;">
-            <h3 style="font-size:1.4rem; color:var(--text-bright); margin-bottom:0.5rem;">🔀 "Choose the Data's Fate": Live Decision Tree</h3>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Vote on 4 critical pipeline choices and observe how reasonable individual choices create or mitigate feedback cascades.</p>
-          </div>
-          <div id="branching-container" style="min-height:300px;"></div>
+    <!-- Data Lifecycle Walkthrough Section -->
+    <section class="section" id="lifecycle">
+      <span class="section-label">Core Engineering Pipeline</span>
+      <h2 class="section-title">The 5 Stages of the <span style="color:var(--color-primary);">Data Lifecycle Pipeline</span></h2>
+      <p class="section-subtitle">How raw environmental data moves from initial collection to an evaluated, production-ready machine learning artifact.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-top:2rem;">
+        
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">1. Generation & Ingestion</div>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+            Raw physical measurement collection from Palmer Station Antarctica LTER (`penguins.csv`). Captures bill length, bill depth, flipper length, body mass, and sex across 344 penguin observations.
+          </p>
         </div>
 
-        <!-- Tab 3: GitHub PR Guide -->
-        <div class="tab-content" id="tab-git">
-          <div style="margin-bottom:1.5rem;">
-            <h3 style="font-size:1.4rem; color:var(--text-bright); margin-bottom:0.5rem;">🐙 Project Repository & PR Guide</h3>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Instructions on running the mini project locally and contributing via Pull Requests.</p>
-          </div>
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">2. Processing & Cleaning</div>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+            Handling missing values resulting from field collection challenges. Applies **Median Imputation** to numeric measurements and **Mode Imputation** to categorical attributes (`sex`), preserving 100% of observation records.
+          </p>
+        </div>
+
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">3. Preprocessing & Feature Matrix</div>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+            Structuring continuous feature matrix $X$ and target vector $y$. Stratified train/test splitting (80/20) to ensure balanced representation across species cohorts.
+          </p>
+        </div>
+
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">4. Model Training & Evaluation</div>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+            Training a `RandomForestClassifier` (100 estimators, max depth 5). Evaluated using Precision, Recall, F1-Scores, Feature Importances, and Confusion Matrix metrics (>95% accuracy score).
+          </p>
+        </div>
+
+        <div class="workshop-card" style="padding:1.5rem; grid-column: 1 / -1;">
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">5. Export & Inference CLI</div>
+          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
+            Serializing model binary artifact to `penguin_model.pkl` and deploying a standalone CLI prediction script (`predict.py`) for real-time inference on new penguin measurements.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Professional GitHub Repo Guide Section -->
+    <section class="section" id="gitguide">
+      <span class="section-label">GitHub Portfolio Integration</span>
+      <h2 class="section-title">Organizing Your Repository on GitHub</h2>
+      <p class="section-subtitle">How to structure, format, and present this project on your personal GitHub profile to showcase for portfolio websites.</p>
+
+      <div class="simulator-workspace" style="padding:2rem;">
+        <div style="line-height:1.8; font-size:0.95rem;">
           
-          <div style="line-height:1.8; font-size:0.95rem;">
-            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">1. Clone & Run Project Locally</h4>
-            <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); margin-bottom:1.25rem; border:1px solid var(--border-color);">
-# Clone repository
-git clone https://github.com/lowell-monis/msu-ai-workshops.git
-cd msu-ai-workshops/workshops/workshop1
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Create & Push Your Project Repository</h3>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); margin-bottom:1.25rem; border:1px solid var(--border-color); overflow-x:auto;">
+# Create a new local directory
+mkdir palmer-penguins-ml-classifier
+cd palmer-penguins-ml-classifier
 
-# Run verification pipeline
-python verify_notebook.py
-            </pre>
+# Copy project files into directory (penguins.csv, train.py, predict.py, penguin_classifier.ipynb, verify_pipeline.py, README.md)
+git init
+git add .
+git commit -m "Initial commit: Palmer Penguins ML Classifier & Data Lifecycle Pipeline"
 
-            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">2. Report Issues & Submit Pull Requests (PRs)</h4>
-            <ul style="padding-left:1.2rem; color:var(--text-main);">
-              <li style="margin-bottom:0.5rem;"><strong>Report Issues</strong>: Go to the main GitHub repo ➔ <em>Issues</em> tab ➔ <em>New Issue</em>.</li>
-              <li style="margin-bottom:0.5rem;"><strong>Submit a PR</strong>: Fork the repository ➔ create a topic branch (`git checkout -b feature/my-feature`) ➔ test locally (`python verify_notebook.py`) ➔ push and open a Pull Request!</li>
-            </ul>
-          </div>
+# Push to your personal GitHub profile
+git remote add origin https://github.com/YOUR_USERNAME/palmer-penguins-ml-classifier.git
+git branch -M main
+git push -u origin main
+          </pre>
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Recommended Repository Structure</h3>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.25rem; border:1px solid var(--border-color); overflow-x:auto;">
+palmer-penguins-ml-classifier/
+├── README.md                   # Professional project documentation & Model Card
+├── penguins.csv                # Palmer Archipelago raw dataset (344 rows)
+├── train.py                    # 5-stage Data Lifecycle training pipeline
+├── predict.py                  # CLI inference script
+├── penguin_classifier.ipynb    # Jupyter Notebook with EDA & Plotly visualizations
+├── verify_pipeline.py          # Automated unit test suite (>95% accuracy check)
+└── penguin_model.pkl           # Saved Random Forest classifier artifact
+          </pre>
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Hands-on Enhancement Challenges</h3>
+          <ul style="padding-left:1.2rem; color:var(--text-main);">
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature `bill_ratio = bill_length_mm / bill_depth_mm` in `train.py` and evaluate if model accuracy improves.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Model Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in `penguin_classifier.ipynb`.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Test Coverage</strong>: Add an additional test assertion in `verify_pipeline.py` checking feature importance rankings.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 4: Portfolio Showcase</strong>: Embed the repository link and model accuracy badges into your personal portfolio website!</li>
+          </ul>
+
         </div>
-
       </div>
     </section>
 
     <!-- References Section -->
     <section class="section" id="references">
-      <span class="section-label">Academic Grounding</span>
+      <span class="section-label">Academic & Dataset Grounding</span>
       <h2 class="section-title">📚 References</h2>
-      <p class="section-subtitle">All workshop materials, slide skeletons, and notebook audits are grounded in data science literature and ethics frameworks.</p>
+      <p class="section-subtitle">All workshop materials, classification pipelines, and datasets are grounded in scientific literature and data science frameworks.</p>
 
       <ol class="references-list">
+        <li>
+          K. B. Gorman, T. D. Williams, and W. R. Fraser, "Ecological sexual dimorphism and environmental variability within a community of Antarctic penguins (genus <em>Pygoscelis</em>)," <em>PLoS ONE</em>, vol. 9, no. 3, p. e90081, 2014.
+        </li>
         <li>
           C. O'Neil, <em>Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy</em>. New York, NY, USA: Crown Publishing Group, 2016.
         </li>
         <li>
           C. D'Ignazio and L. F. Klein, <em>Data Feminism</em>. Cambridge, MA, USA: MIT Press, 2020.
-        </li>
-        <li>
-          Pope Leo XIV, <em>Magnifica Humanitas: On Safeguarding the Human Person in the Time of Artificial Intelligence</em>, Encyclical Letter, Vatican City: Libreria Editrice Vaticana, 2025.
         </li>
         <li>
           E. Yudkowsky and N. Soares, <em>If Anyone Builds It, Everyone Dies: Why Superhuman AI Would Kill Us All</em>. New York, NY, USA: Little, Brown and Company, 2025.
@@ -306,8 +315,6 @@ python verify_notebook.py
     </div>
   </footer>
 
-  <!-- Particles.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <!-- Application JS -->
   <script src="../../app.js"></script>
 </body>
