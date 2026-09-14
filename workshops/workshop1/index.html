@@ -31,9 +31,10 @@
       <nav class="site-nav">
         <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
         <a href="#quickstart" class="nav-link">Quickstart</a>
-        <a href="#predictor" class="nav-link">Interactive Predictor</a>
-        <a href="#lifecycle" class="nav-link">Data Lifecycle Hints</a>
-        <a href="#repo-org" class="nav-link">Repo File Guide</a>
+        <a href="#tasks" class="nav-link">Task Guide</a>
+        <a href="#experiment" class="nav-link">100 Pts Activity</a>
+        <a href="#predictor" class="nav-link">Predictor</a>
+        <a href="#repo-org" class="nav-link">Repo Guide</a>
         <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" class="nav-link" rel="noopener">
           <i class="fab fa-github"></i> Template Repo
         </a>
@@ -56,7 +57,7 @@
       </p>
 
       <p class="hero-tagline">
-        ⚡ <strong>Standalone Template Repository:</strong> Attendees can fork or clone <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" style="color:var(--color-primary); text-decoration:underline;">palmer-penguins-ml-template</a> to get a complete Python ML codebase (`penguins.csv`, `train.py`, `predict.py`, `penguin_classifier.ipynb`, `verify_pipeline.py`) ready to modify and push to GitHub!
+        ⚡ <strong>Standalone Template Repository:</strong> Attendees can fork or clone <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" style="color:var(--color-primary); text-decoration:underline;">palmer-penguins-ml-template</a> to get a complete Python ML codebase (<code>train.py</code>, <code>predict.py</code>, and <code>penguin_classifier.ipynb</code>) ready to modify and push to GitHub!
       </p>
 
       <div class="hero-actions">
@@ -66,8 +67,8 @@
         <a href="https://colab.research.google.com/github/lowell-monis/palmer-penguins-ml-template/blob/main/penguin_classifier.ipynb" target="_blank" rel="noopener" class="btn btn-ghost">
           <i class="fas fa-external-link-alt"></i> Open Colab Notebook
         </a>
-        <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener" class="btn btn-accent">
-          <i class="fas fa-ticket-alt"></i> AI Club Events
+        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener" class="btn btn-accent">
+          <i class="fas fa-ticket-alt"></i> AI Club Events (100 Pts)
         </a>
       </div>
     </section>
@@ -112,6 +113,115 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
           </pre>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Workshop Tasks & Step-by-Step Instructions Section -->
+    <section class="section" id="tasks">
+      <span class="section-label">Step-by-Step Task Guide</span>
+      <h2 class="section-title">Workshop Tasks & <span style="color:var(--color-primary);">Completion Instructions</span></h2>
+      <p class="section-subtitle">Follow these instructions step-by-step to complete Workshop 01 and prepare your project repository for submission.</p>
+
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
+        
+        <!-- Task 1 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 1</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Fork & Clone the Starter Template Repository</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:1rem;">
+            Click <strong>Open Template Repository</strong> to navigate to <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" style="color:var(--color-primary); font-weight:600;">palmer-penguins-ml-template</a> on GitHub. Click <strong>Fork</strong> to create a copy in your personal GitHub account, then clone it to your local machine:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
+git clone https://github.com/YOUR-USERNAME/palmer-penguins-ml-template.git
+cd palmer-penguins-ml-template
+pip install pandas numpy scikit-learn plotly jupyter</pre>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 2</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Audit Missing Data & Dynamic Data Ingestion</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Inspect <code>train.py</code> or open <code>penguin_classifier.ipynb</code>. Notice how raw data is dynamically loaded from the public raw URL without committing CSV data to Git:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Identify missing value frequencies across bill length, bill depth, flipper length, body mass, and sex.</li>
+            <li>Observe how median imputation for numeric attributes and mode imputation for categorical attributes preserve all 344 records without row deletion.</li>
+          </ul>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 3</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Train Model & Evaluate Classification Metrics</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Run <code>python train.py</code> in your terminal. Examine the output accuracy score, per-species classification report, and feature importances:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Verify overall model classification accuracy (exceeds 95%).</li>
+            <li>Compare precision, recall, and F1-scores across Adelie, Chinstrap, and Gentoo species cohorts.</li>
+          </ul>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Complete the Interactive Branching Experiment (100 Points)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+            Work through the 4-stage <a href="#experiment" style="color:var(--color-primary); font-weight:600;">Data Lifecycle Branching Experiment</a> below. Make decisions between Option A and Option B at each stage to evaluate data quality, disparate impact ratios, and human oversight loops.
+          </p>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 5</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Run CLI Predictions & Test Interactive Predictor</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Test inference using <code>predict.py</code> and the interactive predictor sliders below:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
+python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
+        </div>
+
+        <!-- Task 6 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 6</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Structure Your Repository & Submit Event Link</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo File Guide</a> to organize your starter repository into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to GitHub:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:0.75rem; overflow-x:auto;">
+git add .
+git commit -m "Organize ML project repository architecture"
+git push origin main</pre>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
+            Finally, submit your repository link on the <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" style="color:var(--color-primary); font-weight:600;">MSU AI Club Event Page</a> to earn your 100 points!
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Data Lifecycle Branching Experiment Section (100 Points) -->
+    <section class="section" id="experiment">
+      <span class="section-label">100 Points Interactive Activity</span>
+      <h2 class="section-title">Data Lifecycle <span style="color:var(--color-primary);">Branching Experiment</span></h2>
+      <p class="section-subtitle">Work through the 4 Data Lifecycle stages. Select Option A or Option B at each stage to observe how architectural choices impact model fairness, cleaning loss, and human oversight loops.</p>
+
+      <div class="simulator-workspace" style="padding:2rem;" id="branching-container">
+        <!-- Interactive Branching Activity dynamically loaded via app.js -->
       </div>
     </section>
 
@@ -170,60 +280,14 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
             <div style="text-align:left; font-size:0.85rem; background:#080b12; padding:1rem; border-radius:var(--radius-sm); border:1px solid rgba(8,255,255,0.15);">
               <div style="color:var(--color-primary); font-weight:600; margin-bottom:0.5rem;">Species Classification Keys:</div>
               <ul style="padding-left:1.2rem; margin:0; line-height:1.6; color:var(--text-main);">
-                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (< 43.5mm), higher bill depth (> 16.5mm).</li>
-                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (> 43.5mm), higher bill depth (> 16.5mm).</li>
-                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (> 45mm), shallow bill depth (< 17.5mm), large flippers (> 205mm).</li>
+                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (&lt; 43.5mm), higher bill depth (&gt; 16.5mm).</li>
+                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (&gt; 43.5mm), higher bill depth (&gt; 16.5mm).</li>
+                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (&gt; 45mm), shallow bill depth (&lt; 17.5mm), large flippers (&gt; 205mm).</li>
               </ul>
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
-
-    <!-- Data Lifecycle Hints & Best Practices Section -->
-    <section class="section" id="lifecycle">
-      <span class="section-label">Core Principles</span>
-      <h2 class="section-title">Data Lifecycle <span style="color:var(--color-primary);">Best Practices & Hints</span></h2>
-      <p class="section-subtitle">Key engineering annotations embedded directly in the repository code (`train.py`, `predict.py`, `penguin_classifier.ipynb`).</p>
-
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-top:2rem;">
-        
-        <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 1: Ingestion Diagnostic</div>
-          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            <strong>[Lifecycle Hint]</strong>: Always inspect column missingness frequencies and data types before model training. Notice how missing values occur across bill/flipper fields in `penguins.csv`.
-          </p>
-        </div>
-
-        <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 2: Cleaning & Imputation</div>
-          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            <strong>[Lifecycle Hint]</strong>: Avoid naive row deletion (`df.dropna()`) as it can drop underrepresented observation cohorts. Apply median imputation for numeric features and mode imputation for categorical fields.
-          </p>
-        </div>
-
-        <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 3: Stratified Preprocessing</div>
-          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            <strong>[Lifecycle Hint]</strong>: Apply stratified train/test splitting (`stratify=y`) so smaller species cohorts (like Chinstrap) maintain equal representation in both training and evaluation subsets.
-          </p>
-        </div>
-
-        <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 4: Per-Class Evaluation</div>
-          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            <strong>[Lifecycle Hint]</strong>: Evaluate per-class precision and recall rather than relying solely on overall accuracy. Confusion matrices reveal class-specific misclassification rates.
-          </p>
-        </div>
-
-        <div class="workshop-card" style="padding:1.5rem; grid-column: 1 / -1;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 5: Schema-Validated Inference</div>
-          <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            <strong>[Lifecycle Hint]</strong>: Validate input DataFrame column schemas in `predict.py` to ensure runtime CLI input measurements match the exact feature names and order expected by `penguin_model.pkl`.
-          </p>
-        </div>
-
       </div>
     </section>
 
@@ -297,7 +361,7 @@ palmer-penguins-ml-template/
       </div>
       <div class="footer-links">
         <a href="../../index.html"><i class="fas fa-arrow-left"></i> Workshops Home</a>
-        <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener">Events Page</a>
+        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener">Events Page (100 Pts)</a>
         <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" rel="noopener"><i class="fab fa-github"></i> Template Repo</a>
       </div>
     </div>

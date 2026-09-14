@@ -4,7 +4,7 @@
 **Date**: September 14, 2026 @ 6:00 PM  
 **Location**: STEM 3202, Michigan State University  
 **Points**: 100 PTS  
-**Event Link**: [MSU AI Club Events Page](https://www.msuaiclub.com/events)  
+**Event Link**: [MSU AI Club Event Page (100 Pts)](https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81)  
 **Today's Track**: Billy Joel — *Vienna*  
 
 ---
