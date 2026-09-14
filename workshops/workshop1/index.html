@@ -32,8 +32,6 @@
         <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
         <a href="#quickstart" class="nav-link">Quickstart</a>
         <a href="#tasks" class="nav-link">Task Guide</a>
-        <a href="#experiment" class="nav-link">100 Pts Activity</a>
-        <a href="#predictor" class="nav-link">Predictor</a>
         <a href="#repo-org" class="nav-link">Repo Guide</a>
         <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" class="nav-link" rel="noopener">
           <i class="fab fa-github"></i> Template Repo
@@ -47,7 +45,7 @@
     <!-- Workshop 01 Hero Header -->
     <section class="hero-wrapper" id="hero">
       <div class="hero-meta">
-        <span class="hero-label">WORKSHOP 01 · SEPTEMBER 14, 2026 @ 6:00 PM · STEM 3202 · 100 PTS</span>
+        <span class="hero-label">WORKSHOP 01 · SEPTEMBER 14, 2026 @ 6:00 PM · STEM 3202</span>
       </div>
       
       <h1 class="hero-name">The Art of the Data Lifecycle:<br><span style="color:var(--color-primary);">Palmer Penguins ML Classifier</span></h1>
@@ -68,7 +66,7 @@
           <i class="fas fa-external-link-alt"></i> Open Colab Notebook
         </a>
         <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener" class="btn btn-accent">
-          <i class="fas fa-ticket-alt"></i> AI Club Events (100 Pts)
+          <i class="fas fa-ticket-alt"></i> AI Club Events
         </a>
       </div>
     </section>
@@ -173,121 +171,33 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
         <div class="workshop-card" style="padding:1.5rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Complete the Interactive Branching Experiment (100 Points)</h3>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Run CLI Predictions</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
-            Work through the 4-stage <a href="#experiment" style="color:var(--color-primary); font-weight:600;">Data Lifecycle Branching Experiment</a> below. Make decisions between Option A and Option B at each stage to evaluate data quality, disparate impact ratios, and human oversight loops.
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Test real-time inference using <code>predict.py</code> in your terminal:
           </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
+python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
         </div>
 
         <!-- Task 5 -->
         <div class="workshop-card" style="padding:1.5rem;">
           <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 5</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Run CLI Predictions & Test Interactive Predictor</h3>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Structure Your Repository & Submit Project Link</h3>
           </div>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Test inference using <code>predict.py</code> and the interactive predictor sliders below:
-          </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
-python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
-        </div>
-
-        <!-- Task 6 -->
-        <div class="workshop-card" style="padding:1.5rem;">
-          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
-            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 6</span>
-            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Structure Your Repository & Submit Event Link</h3>
-          </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo File Guide</a> to organize your starter repository into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to GitHub:
+            Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo Guide</a> to organize your starter repository into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to GitHub:
           </p>
           <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:0.75rem; overflow-x:auto;">
 git add .
 git commit -m "Organize ML project repository architecture"
 git push origin main</pre>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6;">
-            Finally, submit your repository link on the <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" style="color:var(--color-primary); font-weight:600;">MSU AI Club Event Page</a> to earn your 100 points!
+            Finally, submit your repository link on the <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" style="color:var(--color-primary); font-weight:600;">MSU AI Club Event Page</a>!
           </p>
         </div>
 
-      </div>
-    </section>
-
-    <!-- Interactive Data Lifecycle Branching Experiment Section (100 Points) -->
-    <section class="section" id="experiment">
-      <span class="section-label">100 Points Interactive Activity</span>
-      <h2 class="section-title">Data Lifecycle <span style="color:var(--color-primary);">Branching Experiment</span></h2>
-      <p class="section-subtitle">Work through the 4 Data Lifecycle stages. Select Option A or Option B at each stage to observe how architectural choices impact model fairness, cleaning loss, and human oversight loops.</p>
-
-      <div class="simulator-workspace" style="padding:2rem;" id="branching-container">
-        <!-- Interactive Branching Activity dynamically loaded via app.js -->
-      </div>
-    </section>
-
-    <!-- Interactive In-Browser Penguin Species Predictor Section -->
-    <section class="section" id="predictor">
-      <span class="section-label">Live Model Demonstration</span>
-      <h2 class="section-title">Interactive <span style="color:var(--color-primary);">Penguin Species Predictor</span></h2>
-      <p class="section-subtitle">Adjust biological measurement sliders below to see live species predictions generated by the Random Forest model.</p>
-
-      <div class="simulator-workspace" style="padding:2rem;">
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem; align-items:start;">
-          
-          <!-- Controls Column -->
-          <div>
-            <h3 style="color:var(--text-bright); font-size:1.2rem; margin-bottom:1rem;">Biological Input Parameters</h3>
-            
-            <div style="margin-bottom:1.25rem;">
-              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
-                <span>Bill Length (mm)</span>
-                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-bill-len">47.5</span>
-              </label>
-              <input type="range" id="p-bill-length" min="32.0" max="60.0" step="0.5" value="47.5" style="width:100%;">
-            </div>
-
-            <div style="margin-bottom:1.25rem;">
-              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
-                <span>Bill Depth (mm)</span>
-                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-bill-dep">15.0</span>
-              </label>
-              <input type="range" id="p-bill-depth" min="13.0" max="22.0" step="0.5" value="15.0" style="width:100%;">
-            </div>
-
-            <div style="margin-bottom:1.25rem;">
-              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
-                <span>Flipper Length (mm)</span>
-                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-flipper-len">217</span>
-              </label>
-              <input type="range" id="p-flipper-length" min="170" max="235" step="1" value="217" style="width:100%;">
-            </div>
-
-            <div style="margin-bottom:1.25rem;">
-              <label style="display:flex; justify-content:space-between; font-weight:500; font-size:0.9rem; margin-bottom:0.3rem;">
-                <span>Body Mass (g)</span>
-                <span style="color:var(--color-primary); font-family:var(--font-code);" id="v-body-mass">5000</span>
-              </label>
-              <input type="range" id="p-body-mass" min="2700" max="6300" step="50" value="5000" style="width:100%;">
-            </div>
-          </div>
-
-          <!-- Prediction Result Box Column -->
-          <div style="background:#040406; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:2rem; text-align:center;">
-            <span style="font-size:0.8rem; letter-spacing:1px; color:var(--text-muted); text-transform:uppercase;">Model Prediction Result</span>
-            <div style="font-size:2.8rem; font-weight:700; margin:1rem 0; color:var(--color-primary);" id="pred-species-out">Gentoo</div>
-            <div style="font-size:1rem; color:var(--text-muted); margin-bottom:1.5rem;" id="pred-conf-out">Confidence: 98.8%</div>
-            
-            <div style="text-align:left; font-size:0.85rem; background:#080b12; padding:1rem; border-radius:var(--radius-sm); border:1px solid rgba(8,255,255,0.15);">
-              <div style="color:var(--color-primary); font-weight:600; margin-bottom:0.5rem;">Species Classification Keys:</div>
-              <ul style="padding-left:1.2rem; margin:0; line-height:1.6; color:var(--text-main);">
-                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (&lt; 43.5mm), higher bill depth (&gt; 16.5mm).</li>
-                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (&gt; 43.5mm), higher bill depth (&gt; 16.5mm).</li>
-                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (&gt; 45mm), shallow bill depth (&lt; 17.5mm), large flippers (&gt; 205mm).</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
 
@@ -349,7 +259,7 @@ my-ml-project/
       </div>
       <div class="footer-links">
         <a href="../../index.html"><i class="fas fa-arrow-left"></i> Workshops Home</a>
-        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener">Events Page (100 Pts)</a>
+        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener">Events Page</a>
         <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" rel="noopener"><i class="fab fa-github"></i> Template Repo</a>
       </div>
     </div>
