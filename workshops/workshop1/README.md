@@ -11,13 +11,13 @@
 
 # How to Reproduce Results & Run Workshop 1
 
-Follow these steps to run the analysis pipeline and generate your portfolio summary (`audit_summary.md`).
+Follow these steps to run the analysis pipeline and generate your executive audit summary (`audit_summary.md`).
 
 ### Option 1: In-Browser Interactive Suite (Zero Installation)
 Open [`index.html`](index.html) in any web browser or visit the live GitHub Pages / Vercel site:
 * Execute interactive cell simulations directly inside your browser.
 * Use the **Human Oversight Audit Slider** (0% to 50%) to dynamically damp feedback cascades in real time.
-* Click **📜 Export Portfolio Artifact** to download your `audit_summary.md`.
+* Click **📥 Export Executive Audit Summary** to download your `audit_summary.md`.
 
 ### Option 2: Open in Google Colab
 Launch the pre-configured notebook directly in Google Colab:
