@@ -48,7 +48,7 @@
         <span class="hero-label">WORKSHOP 01 · SEPTEMBER 14, 2026 @ 6:00 PM · STEM 3202</span>
       </div>
       
-      <h1 class="hero-name">The Art of the Data Lifecycle:<br><span style="color:var(--color-primary);">Palmer Penguins ML Classifier</span></h1>
+      <h1 class="hero-name">The Art of the Data Lifecycle: <span style="color:var(--color-primary);">Palmer Penguins ML Classifier</span></h1>
       
       <p class="hero-headline">
         Every AI model tells a story about the data it feeds on. Work through a complete, real-world Machine Learning classification project using the Palmer Penguins dataset. Inspect missing biological signals, train a Random Forest classifier, evaluate per-species performance, and run real-time predictions.
@@ -68,6 +68,9 @@
         <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener" class="btn btn-accent">
           <i class="fas fa-ticket-alt"></i> Workshop Check-in
         </a>
+        <span class="btn btn-ghost" style="opacity:0.7; cursor:not-allowed;" title="Companion Article Coming Soon">
+          <i class="fas fa-newspaper"></i> Companion Article <span class="wordmark-badge" style="font-size:0.65rem; border-color:rgba(255,255,255,0.2); color:var(--text-muted); margin-left:0.2rem;">Upcoming</span>
+        </span>
       </div>
     </section>
 
@@ -81,22 +84,15 @@
         <div style="line-height:1.8; font-size:0.95rem;">
           
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clone Template Repository & Install Dependencies</h3>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">
-# Clone the standalone template repository
-git clone https://github.com/lowell-monis/palmer-penguins-ml-template.git
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">git clone https://github.com/lowell-monis/palmer-penguins-ml-template.git
 cd palmer-penguins-ml-template
-
-# Install required Python packages
-pip install pandas numpy scikit-learn plotly jupyter
-          </pre>
+pip install pandas numpy scikit-learn plotly jupyter</pre>
 
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Workflow Step A: Visual Demo via Notebook</h3>
           <p style="color:var(--text-muted); margin-bottom:0.5rem;">
             Run <code>penguin_classifier.ipynb</code> for live exploratory data analysis, Plotly scatter charts, and step-by-step pipeline execution:
           </p>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">
-jupyter notebook penguin_classifier.ipynb
-          </pre>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">jupyter notebook penguin_classifier.ipynb</pre>
 
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Workflow Step B: Modular Code Execution & Modification</h3>
           <p style="color:var(--text-muted); margin-bottom:0.5rem;">
@@ -105,13 +101,8 @@ jupyter notebook penguin_classifier.ipynb
           <div style="background:#100d04; border:1px solid #f59e0b; padding:0.75rem 1rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-size:0.88rem; color:#f59e0b;">
             ⚠️ <strong>Important Demarcation:</strong> Complete the code modifications and fill in all <code># TODO:</code> exercise blocks in the Python files first before running the terminal execution commands below!
           </div>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
-# Train the Random Forest model (Execute ONLY AFTER completing code modifications in train.py)
-python train.py
-
-# Run CLI inference for custom penguin bill/flipper measurements (Execute ONLY AFTER train.py completes)
-python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
-          </pre>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">python train.py
+python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
 
         </div>
       </div>
@@ -134,8 +125,7 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:1rem;">
             Click <strong>Open Template Repository</strong> to navigate to <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" style="color:var(--color-primary); font-weight:600;">palmer-penguins-ml-template</a> on GitHub. Click <strong>Fork</strong> to create a copy in your personal GitHub account, then clone it to your local machine:
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
-git clone https://github.com/YOUR-USERNAME/palmer-penguins-ml-template.git
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">git clone https://github.com/YOUR-USERNAME/palmer-penguins-ml-template.git
 cd palmer-penguins-ml-template
 pip install pandas numpy scikit-learn plotly jupyter</pre>
         </div>
@@ -180,9 +170,7 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
             Fill in the <code># TODO:</code> blocks in <code>predict.py</code> to load the serialized <code>penguin_model.pkl</code> artifact and compute predictions:
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">
-# Execute CLI inference after completing the # TODO: blocks
-python train.py
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">python train.py
 python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
         </div>
 
@@ -195,8 +183,7 @@ python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --bo
           <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
             Follow the <a href="#repo-org" style="color:var(--color-primary); font-weight:600;">Repo Guide</a> to organize your completed starter files into standard project directories (e.g. <code>src/</code>, <code>notebooks/</code>). Commit and push your changes to your personal GitHub account:
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:0.75rem; overflow-x:auto;">
-git add .
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:0.75rem; overflow-x:auto;">git add .
 git commit -m "Complete ML classifier workshop pipeline and folder structure"
 git push origin main</pre>
         </div>
@@ -217,8 +204,7 @@ git push origin main</pre>
           <p style="color:var(--text-muted); margin-bottom:1rem;">
             Rearrange flat starter template files into clean directory folders so your GitHub repository follows production engineering practices <strong style="color:var(--color-primary);">(Note: Not all folders are needed — use what applies to your specific project!)</strong>:
           </p>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">
-my-ml-project/
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">my-ml-project/
 ├── README.md               # Project overview, setup commands, & model summary
 ├── .gitignore              # Ignore rules for cache, raw data, and model binaries
 ├── requirements.txt        # Python package dependencies
