@@ -1,72 +1,28 @@
-# 🐧 Palmer Penguins Species Classifier & Data Lifecycle Pipeline
-### *MSU AI Club Workshop 01 Template Repository*
+# 📊 Workshop 01: The Art of the Data Lifecycle — Palmer Penguins ML Classifier
+### *Interactive Web Guide & Standalone Template Repository Overview*
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
-[![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0%2B-orange.svg)](https://scikit-learn.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/Pipeline-Passing-brightgreen.svg)](verify_pipeline.py)
-
-An end-to-end Machine Learning classification pipeline predicting Palmer Archipelago penguin species (`Adelie`, `Chinstrap`, `Gentoo`) based on biological measurements. Built with `pandas`, `scikit-learn`, `plotly`, and containerized CLI inference tools.
-
----
-
-## 📊 Project Overview
-
-This repository executes a 5-stage Data Lifecycle pipeline on the famous Palmer Station Antarctica LTER dataset (`penguins.csv`):
-
-1. **Ingestion**: Raw measurement collection across 344 penguin observations.
-2. **Cleaning & Imputation**: Handling missing physical measurements with median/mode imputation.
-3. **Preprocessing**: Feature matrix formulation ($X$) and stratified train/test splitting.
-4. **Model Training**: Random Forest classification achieving **>95% accuracy**.
-5. **CLI Inference**: Interactive command-line tool (`predict.py`) for real-time species predictions.
+**Date**: September 14, 2026 @ 6:00 PM  
+**Location**: STEM 3202, Michigan State University  
+**Points**: 100 PTS  
+**Event Link**: [MSU AI Club Events Page](https://www.msuaiclub.com/events)  
+**Today's Track**: Billy Joel — *Vienna*  
 
 ---
 
-## 🚀 Quickstart & Installation
+## 🚀 Overview & Template Repository Links
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/lowell-monis/msu-ai-workshops.git
-cd msu-ai-workshops/workshops/workshop1
+This directory contains the web guide and interactive predictor assets for **Workshop 01**.
 
-# 2. Install required Python packages
-pip install pandas numpy scikit-learn plotly jupyter
-
-# 3. Train the classifier model (creates penguin_model.pkl)
-python train.py
-
-# 4. Predict species for custom penguin measurements via CLI
-python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
-
-# 5. Run automated unit tests
-python verify_pipeline.py
-```
+* **Standalone Template Repository**: [https://github.com/lowell-monis/palmer-penguins-ml-template](https://github.com/lowell-monis/palmer-penguins-ml-template)
+* **Open in Google Colab**: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lowell-monis/palmer-penguins-ml-template/blob/main/penguin_classifier.ipynb)
+* **Interactive Web Guide**: Open [`index.html`](index.html) in your browser.
 
 ---
 
-## 📁 Repository Architecture
+## 💻 Working Options
 
-```
-palmer-penguins-ml-classifier/
-├── README.md                   # Project documentation & Model Card
-├── penguins.csv                # Palmer Archipelago raw dataset (344 rows)
-├── train.py                    # 5-stage Data Lifecycle training pipeline
-├── predict.py                  # CLI inference script
-├── penguin_classifier.ipynb    # Jupyter Notebook with EDA & Plotly visualizations
-├── verify_pipeline.py          # Automated unit test suite (>95% accuracy check)
-└── penguin_model.pkl           # Trained Random Forest model artifact
-```
-
----
-
-## 🎯 Model Performance & Metrics
-
-| Metric | Adelie | Chinstrap | Gentoo | Overall |
-|---|---|---|---|---|
-| **Precision** | 97% | 92% | 96% | **96%** |
-| **Recall** | 97% | 86% | 100% | **96%** |
-| **F1-Score** | 97% | 89% | 98% | **96%** |
-| **Accuracy** | — | — | — | **95.7%** |
+1. **Jupyter Notebook Alternative**: Open `penguin_classifier.ipynb` for live visual demonstration, Plotly scatter charts, and step-by-step pipeline exploration.
+2. **Modular Python Scripts**: Use `train.py` and `predict.py` for CLI training and inference.
 
 ---
 

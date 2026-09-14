@@ -30,12 +30,12 @@
       </a>
       <nav class="site-nav">
         <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
-        <a href="#reproduce" class="nav-link">Quickstart Guide</a>
+        <a href="#quickstart" class="nav-link">Quickstart</a>
         <a href="#predictor" class="nav-link">Interactive Predictor</a>
-        <a href="#lifecycle" class="nav-link">Data Lifecycle</a>
-        <a href="#gitguide" class="nav-link">Repo Guide</a>
-        <a href="https://github.com/lowell-monis/msu-ai-workshops" target="_blank" class="nav-link" rel="noopener">
-          <i class="fab fa-github"></i> GitHub
+        <a href="#lifecycle" class="nav-link">Data Lifecycle Hints</a>
+        <a href="#repo-org" class="nav-link">Repo File Guide</a>
+        <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" class="nav-link" rel="noopener">
+          <i class="fab fa-github"></i> Template Repo
         </a>
       </nav>
     </div>
@@ -52,22 +52,19 @@
       <h1 class="hero-name">The Art of the Data Lifecycle:<br><span style="color:var(--color-primary);">Palmer Penguins ML Classifier</span></h1>
       
       <p class="hero-headline">
-        Every AI model tells a story about the data it feeds on. Work through a complete, real-world Machine Learning classification pipeline using the famous Palmer Penguins dataset. Inspect missing biological signals, train a Random Forest classifier, evaluate model performance, and deploy real-time predictions.
+        Every AI model tells a story about the data it feeds on. Work through a complete, real-world Machine Learning classification project using the Palmer Penguins dataset. Inspect missing biological signals, train a Random Forest classifier, evaluate per-species performance, and run real-time predictions.
       </p>
 
       <p class="hero-tagline">
-        ⚡ <strong>Template Repository Project:</strong> Fork or clone this repository to build a complete Python ML project (`penguins.csv`, `train.py`, `predict.py`, `penguin_classifier.ipynb`, `verify_pipeline.py`) ready to publish on your personal GitHub profile!
+        ⚡ <strong>Standalone Template Repository:</strong> Attendees can fork or clone <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" style="color:var(--color-primary); text-decoration:underline;">palmer-penguins-ml-template</a> to get a complete Python ML codebase (`penguins.csv`, `train.py`, `predict.py`, `penguin_classifier.ipynb`, `verify_pipeline.py`) ready to modify and push to GitHub!
       </p>
 
       <div class="hero-actions">
-        <a href="https://github.com/lowell-monis/msu-ai-workshops" target="_blank" rel="noopener" class="btn btn-solid">
-          <i class="fab fa-github"></i> Fork Template Repository
+        <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" rel="noopener" class="btn btn-solid">
+          <i class="fab fa-github"></i> Open Template Repository
         </a>
-        <a href="penguin_classifier.ipynb" download class="btn btn-ghost">
-          <i class="fas fa-download"></i> Download Notebook (.ipynb)
-        </a>
-        <a href="penguins.csv" download class="btn btn-ghost">
-          <i class="fas fa-table"></i> Download Dataset (.csv)
+        <a href="https://colab.research.google.com/github/lowell-monis/palmer-penguins-ml-template/blob/main/penguin_classifier.ipynb" target="_blank" rel="noopener" class="btn btn-ghost">
+          <i class="fas fa-external-link-alt"></i> Open Colab Notebook
         </a>
         <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener" class="btn btn-accent">
           <i class="fas fa-ticket-alt"></i> AI Club Events
@@ -76,40 +73,46 @@
     </section>
 
     <!-- Quickstart & Reproduction Guide Section -->
-    <section class="section" id="reproduce">
-      <span class="section-label">Execution & Reproduction Guide</span>
-      <h2 class="section-title">Quickstart: Run the ML Pipeline Locally</h2>
-      <p class="section-subtitle">Follow these step-by-step terminal commands to execute the pipeline, train the classifier, and run CLI predictions.</p>
+    <section class="section" id="quickstart">
+      <span class="section-label">Execution & Workflow Guide</span>
+      <h2 class="section-title">Quickstart: Clone & Run the Project</h2>
+      <p class="section-subtitle">Use the Jupyter Notebook for visual demonstration, then work through the modular scripts to modify and enhance the project.</p>
 
       <div class="simulator-workspace" style="padding:2rem;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 1: Run Locally via Python Terminal</h3>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
-# 1. Navigate to Workshop 1 directory
-cd msu-ai-workshops/workshops/workshop1
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clone Template Repository & Install Dependencies</h3>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">
+# Clone the standalone template repository
+git clone https://github.com/lowell-monis/palmer-penguins-ml-template.git
+cd palmer-penguins-ml-template
 
-# 2. Install required Python packages
+# Install required Python packages
 pip install pandas numpy scikit-learn plotly jupyter
-
-# 3. Execute the Model Training Pipeline (creates penguin_model.pkl)
-python train.py
-
-# 4. Run CLI Predictions on custom penguin measurements
-python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
-
-# 5. Run Automated Pipeline Verification Tests
-python verify_pipeline.py
           </pre>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 2: Interactive Jupyter Notebook</h3>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
-# Launch Jupyter Notebook interface
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Workflow Step A: Visual Demo via Notebook</h3>
+          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
+            Run <code>penguin_classifier.ipynb</code> for live exploratory data analysis, Plotly scatter charts, and step-by-step pipeline execution:
+          </p>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">
 jupyter notebook penguin_classifier.ipynb
           </pre>
-          <p style="color:var(--text-muted); font-size:0.88rem;">
-            *Expected Outcome*: Running <code>verify_pipeline.py</code> passes all 4 automated unit test stages, achieving <strong>>95% accuracy</strong> on species classification.
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Workflow Step B: Modular Code Execution & Modification</h3>
+          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
+            Inspect and modify <code>train.py</code> and <code>predict.py</code> to add new features or tune hyperparameters:
           </p>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
+# Train the Random Forest model (creates penguin_model.pkl)
+python train.py
+
+# Run real-time CLI inference for custom penguin bill/flipper measurements
+python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
+
+# Run automated unit test suite
+python verify_pipeline.py
+          </pre>
 
         </div>
       </div>
@@ -117,7 +120,7 @@ jupyter notebook penguin_classifier.ipynb
 
     <!-- Interactive In-Browser Penguin Species Predictor Section -->
     <section class="section" id="predictor">
-      <span class="section-label">Live Demonstration</span>
+      <span class="section-label">Live Model Demonstration</span>
       <h2 class="section-title">Interactive <span style="color:var(--color-primary);">Penguin Species Predictor</span></h2>
       <p class="section-subtitle">Adjust biological measurement sliders below to see live species predictions generated by the Random Forest model.</p>
 
@@ -168,11 +171,11 @@ jupyter notebook penguin_classifier.ipynb
             <div style="font-size:1rem; color:var(--text-muted); margin-bottom:1.5rem;" id="pred-conf-out">Confidence: 98.8%</div>
             
             <div style="text-align:left; font-size:0.85rem; background:#080b12; padding:1rem; border-radius:var(--radius-sm); border:1px solid rgba(8,255,255,0.15);">
-              <div style="color:var(--color-primary); font-weight:600; margin-bottom:0.5rem;">Species Characteristics Key:</div>
+              <div style="color:var(--color-primary); font-weight:600; margin-bottom:0.5rem;">Species Classification Keys:</div>
               <ul style="padding-left:1.2rem; margin:0; line-height:1.6; color:var(--text-main);">
-                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (< 43mm), high bill depth (> 17mm), smaller flippers.</li>
-                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (> 45mm), high bill depth (> 17mm), medium flippers.</li>
-                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (> 45mm), shallow bill depth (< 16mm), large flippers (> 205mm).</li>
+                <li><strong style="color:#08ffff;">Adelie</strong>: Shorter bills (< 43.5mm), higher bill depth (> 16.5mm).</li>
+                <li><strong style="color:#ff0055;">Chinstrap</strong>: Longer bills (> 43.5mm), higher bill depth (> 16.5mm).</li>
+                <li><strong style="color:#ffcc00;">Gentoo</strong>: Longer bills (> 45mm), shallow bill depth (< 17.5mm), large flippers (> 205mm).</li>
               </ul>
             </div>
           </div>
@@ -181,96 +184,86 @@ jupyter notebook penguin_classifier.ipynb
       </div>
     </section>
 
-    <!-- Data Lifecycle Walkthrough Section -->
+    <!-- Data Lifecycle Hints & Best Practices Section -->
     <section class="section" id="lifecycle">
-      <span class="section-label">Core Engineering Pipeline</span>
-      <h2 class="section-title">The 5 Stages of the <span style="color:var(--color-primary);">Data Lifecycle Pipeline</span></h2>
-      <p class="section-subtitle">How raw environmental data moves from initial collection to an evaluated, production-ready machine learning artifact.</p>
+      <span class="section-label">Core Principles</span>
+      <h2 class="section-title">Data Lifecycle <span style="color:var(--color-primary);">Best Practices & Hints</span></h2>
+      <p class="section-subtitle">Key engineering annotations embedded directly in the repository code (`train.py`, `predict.py`, `penguin_classifier.ipynb`).</p>
 
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem; margin-top:2rem;">
         
         <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">1. Generation & Ingestion</div>
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 1: Ingestion Diagnostic</div>
           <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            Raw physical measurement collection from Palmer Station Antarctica LTER (`penguins.csv`). Captures bill length, bill depth, flipper length, body mass, and sex across 344 penguin observations.
+            <strong>[Lifecycle Hint]</strong>: Always inspect column missingness frequencies and data types before model training. Notice how missing values occur across bill/flipper fields in `penguins.csv`.
           </p>
         </div>
 
         <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">2. Processing & Cleaning</div>
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 2: Cleaning & Imputation</div>
           <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            Handling missing values resulting from field collection challenges. Applies **Median Imputation** to numeric measurements and **Mode Imputation** to categorical attributes (`sex`), preserving 100% of observation records.
+            <strong>[Lifecycle Hint]</strong>: Avoid naive row deletion (`df.dropna()`) as it can drop underrepresented observation cohorts. Apply median imputation for numeric features and mode imputation for categorical fields.
           </p>
         </div>
 
         <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">3. Preprocessing & Feature Matrix</div>
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 3: Stratified Preprocessing</div>
           <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            Structuring continuous feature matrix $X$ and target vector $y$. Stratified train/test splitting (80/20) to ensure balanced representation across species cohorts.
+            <strong>[Lifecycle Hint]</strong>: Apply stratified train/test splitting (`stratify=y`) so smaller species cohorts (like Chinstrap) maintain equal representation in both training and evaluation subsets.
           </p>
         </div>
 
         <div class="workshop-card" style="padding:1.5rem;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">4. Model Training & Evaluation</div>
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 4: Per-Class Evaluation</div>
           <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            Training a `RandomForestClassifier` (100 estimators, max depth 5). Evaluated using Precision, Recall, F1-Scores, Feature Importances, and Confusion Matrix metrics (>95% accuracy score).
+            <strong>[Lifecycle Hint]</strong>: Evaluate per-class precision and recall rather than relying solely on overall accuracy. Confusion matrices reveal class-specific misclassification rates.
           </p>
         </div>
 
         <div class="workshop-card" style="padding:1.5rem; grid-column: 1 / -1;">
-          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">5. Export & Inference CLI</div>
+          <div style="color:var(--color-primary); font-weight:700; font-size:1.1rem; margin-bottom:0.5rem;">Stage 5: Schema-Validated Inference</div>
           <p style="color:var(--text-muted); font-size:0.9rem; line-height:1.6;">
-            Serializing model binary artifact to `penguin_model.pkl` and deploying a standalone CLI prediction script (`predict.py`) for real-time inference on new penguin measurements.
+            <strong>[Lifecycle Hint]</strong>: Validate input DataFrame column schemas in `predict.py` to ensure runtime CLI input measurements match the exact feature names and order expected by `penguin_model.pkl`.
           </p>
         </div>
 
       </div>
     </section>
 
-    <!-- Professional GitHub Repo Guide Section -->
-    <section class="section" id="gitguide">
-      <span class="section-label">GitHub Portfolio Integration</span>
-      <h2 class="section-title">Organizing Your Repository on GitHub</h2>
-      <p class="section-subtitle">How to structure, format, and present this project on your personal GitHub profile to showcase for portfolio websites.</p>
+    <!-- Repository File Organization Guide Section -->
+    <section class="section" id="repo-org">
+      <span class="section-label">Repository Architecture</span>
+      <h2 class="section-title">How to Organize Files Inside an ML Repository</h2>
+      <p class="section-subtitle">Best practices for structuring scripts, datasets, notebooks, and git ignore rules inside a clean machine learning codebase.</p>
 
       <div class="simulator-workspace" style="padding:2rem;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Create & Push Your Project Repository</h3>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); margin-bottom:1.25rem; border:1px solid var(--border-color); overflow-x:auto;">
-# Create a new local directory
-mkdir palmer-penguins-ml-classifier
-cd palmer-penguins-ml-classifier
-
-# Copy project files into directory (penguins.csv, train.py, predict.py, penguin_classifier.ipynb, verify_pipeline.py, README.md)
-git init
-git add .
-git commit -m "Initial commit: Palmer Penguins ML Classifier & Data Lifecycle Pipeline"
-
-# Push to your personal GitHub profile
-git remote add origin https://github.com/YOUR_USERNAME/palmer-penguins-ml-classifier.git
-git branch -M main
-git push -u origin main
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clean Repository Directory Layout</h3>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">
+palmer-penguins-ml-template/
+├── README.md                   # Project Overview, Setup Commands & Model Card
+├── .gitignore                  # Ignore rules for bytecode, caches, & model binaries
+├── penguins.csv                # Raw Palmer Archipelago dataset (344 rows)
+├── train.py                    # 5-stage Data Lifecycle training pipeline script
+├── predict.py                  # Real-time CLI inference script
+├── penguin_classifier.ipynb    # Notebook alternative (EDA & Plotly visual charts)
+└── verify_pipeline.py          # Automated unit test suite (>85% accuracy check)
           </pre>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Recommended Repository Structure</h3>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.25rem; border:1px solid var(--border-color); overflow-x:auto;">
-palmer-penguins-ml-classifier/
-├── README.md                   # Professional project documentation & Model Card
-├── penguins.csv                # Palmer Archipelago raw dataset (344 rows)
-├── train.py                    # 5-stage Data Lifecycle training pipeline
-├── predict.py                  # CLI inference script
-├── penguin_classifier.ipynb    # Jupyter Notebook with EDA & Plotly visualizations
-├── verify_pipeline.py          # Automated unit test suite (>95% accuracy check)
-└── penguin_model.pkl           # Saved Random Forest classifier artifact
-          </pre>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. File Organization Rules</h3>
+          <ul style="padding-left:1.2rem; color:var(--text-main); margin-bottom:1.5rem;">
+            <li style="margin-bottom:0.5rem;"><strong>Keep Executable Scripts at Root or `src/`</strong>: Separate model training logic (`train.py`) from inference tools (`predict.py`) for clean modularity.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Provide a Notebook Alternative</strong>: Include a Jupyter notebook (`penguin_classifier.ipynb`) for live demos, while maintaining clean Python scripts for reproducible automated execution.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Use `.gitignore` for Generated Artifacts</strong>: Large binary files (like `penguin_model.pkl`) and `__pycache__` directories should be listed in `.gitignore` rather than committed to git history.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Include Automated Verification Tests</strong>: Provide `verify_pipeline.py` so anyone cloning your repository can verify model training and prediction accuracy instantly.</li>
+          </ul>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Hands-on Enhancement Challenges</h3>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Recommended Project Enhancement Challenges</h3>
           <ul style="padding-left:1.2rem; color:var(--text-main);">
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature `bill_ratio = bill_length_mm / bill_depth_mm` in `train.py` and evaluate if model accuracy improves.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Model Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in `penguin_classifier.ipynb`.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Test Coverage</strong>: Add an additional test assertion in `verify_pipeline.py` checking feature importance rankings.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 4: Portfolio Showcase</strong>: Embed the repository link and model accuracy badges into your personal portfolio website!</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature `bill_ratio = bill_length_mm / bill_depth_mm` in `train.py` and test if classifier accuracy improves.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Classifier Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in `penguin_classifier.ipynb`.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Test Assertion</strong>: Add a new unit test in `verify_pipeline.py` asserting feature importance rankings.</li>
           </ul>
 
         </div>
@@ -310,7 +303,7 @@ palmer-penguins-ml-classifier/
       <div class="footer-links">
         <a href="../../index.html"><i class="fas fa-arrow-left"></i> Workshops Home</a>
         <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener">Events Page</a>
-        <a href="https://github.com/lowell-monis/msu-ai-workshops" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" rel="noopener"><i class="fab fa-github"></i> Template Repo</a>
       </div>
     </div>
   </footer>
