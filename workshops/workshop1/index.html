@@ -104,14 +104,11 @@ jupyter notebook penguin_classifier.ipynb
             Inspect and modify <code>train.py</code> and <code>predict.py</code> to add new features or tune hyperparameters:
           </p>
           <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">
-# Train the Random Forest model (creates penguin_model.pkl)
+# Train the Random Forest model (downloads data dynamically from Data URL)
 python train.py
 
-# Run real-time CLI inference for custom penguin bill/flipper measurements
+# Run CLI inference for custom penguin bill/flipper measurements
 python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000
-
-# Run automated unit test suite
-python verify_pipeline.py
           </pre>
 
         </div>
@@ -244,26 +241,24 @@ python verify_pipeline.py
 palmer-penguins-ml-template/
 ├── README.md                   # Project Overview, Setup Commands & Model Card
 ├── .gitignore                  # Ignore rules for bytecode, caches, & model binaries
-├── penguins.csv                # Raw Palmer Archipelago dataset (344 rows)
 ├── train.py                    # 5-stage Data Lifecycle training pipeline script
 ├── predict.py                  # Real-time CLI inference script
-├── penguin_classifier.ipynb    # Notebook alternative (EDA & Plotly visual charts)
-└── verify_pipeline.py          # Automated unit test suite (>85% accuracy check)
+└── penguin_classifier.ipynb    # Notebook alternative (EDA & Plotly visual charts)
           </pre>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. File Organization Rules</h3>
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. File Organization Rules & Data Governance</h3>
           <ul style="padding-left:1.2rem; color:var(--text-main); margin-bottom:1.5rem;">
-            <li style="margin-bottom:0.5rem;"><strong>Keep Executable Scripts at Root or `src/`</strong>: Separate model training logic (`train.py`) from inference tools (`predict.py`) for clean modularity.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Provide a Notebook Alternative</strong>: Include a Jupyter notebook (`penguin_classifier.ipynb`) for live demos, while maintaining clean Python scripts for reproducible automated execution.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Use `.gitignore` for Generated Artifacts</strong>: Large binary files (like `penguin_model.pkl`) and `__pycache__` directories should be listed in `.gitignore` rather than committed to git history.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Include Automated Verification Tests</strong>: Provide `verify_pipeline.py` so anyone cloning your repository can verify model training and prediction accuracy instantly.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Never Commit Raw Data CSVs</strong>: Raw datasets should never be committed directly to git history. Load data dynamically via public URLs (<code>DATA_URL = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/penguins.csv"</code>) or download helper scripts.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Organize Flat Starter Code</strong>: The template repository provides a flat starter layout. Attendees will structure the files into clean project directories (e.g. <code>src/</code>, <code>notebooks/</code>, <code>models/</code>) following this guide.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Provide a Notebook Alternative</strong>: Include <code>penguin_classifier.ipynb</code> for live demos, while maintaining clean Python scripts (<code>train.py</code>, <code>predict.py</code>) for reproducible execution.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Ignore Generated Binary Artifacts</strong>: Always list serialized model binaries (<code>penguin_model.pkl</code>) and bytecode (<code>__pycache__</code>) in <code>.gitignore</code>.</li>
           </ul>
 
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Recommended Project Enhancement Challenges</h3>
           <ul style="padding-left:1.2rem; color:var(--text-main);">
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature `bill_ratio = bill_length_mm / bill_depth_mm` in `train.py` and test if classifier accuracy improves.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Classifier Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in `penguin_classifier.ipynb`.</li>
-            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Test Assertion</strong>: Add a new unit test in `verify_pipeline.py` asserting feature importance rankings.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 1: Feature Engineering</strong>: Add a new feature <code>bill_ratio = bill_length_mm / bill_depth_mm</code> in <code>train.py</code> and test if classifier accuracy improves.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 2: Classifier Comparison</strong>: Train and compare a Logistic Regression model vs Decision Tree vs Random Forest in <code>penguin_classifier.ipynb</code>.</li>
+            <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Custom Data Download Script</strong>: Write a <code>download_data.py</code> script using <code>urllib</code> or <code>requests</code> to fetch and save data locally outside git tracking.</li>
           </ul>
 
         </div>
