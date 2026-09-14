@@ -33,6 +33,7 @@
         <a href="#quickstart" class="nav-link">Quickstart</a>
         <a href="#tasks" class="nav-link">Task Guide</a>
         <a href="#repo-org" class="nav-link">Repo Guide</a>
+        <a href="#spotify" class="nav-link">Soundscape</a>
         <a href="https://github.com/lowell-monis/palmer-penguins-ml-template" target="_blank" class="nav-link" rel="noopener">
           <i class="fab fa-github"></i> Template Repo
         </a>
@@ -98,6 +99,9 @@ pip install pandas numpy scikit-learn plotly jupyter</pre>
           <p style="color:var(--text-muted); margin-bottom:0.5rem;">
             Inspect and modify <code>train.py</code> and <code>predict.py</code> to complete the <code># TODO:</code> exercises, add new features, or tune hyperparameters:
           </p>
+          <div style="background:#100d04; border:1px solid #f59e0b; padding:0.75rem 1rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-size:0.88rem; color:#f59e0b;">
+            ⚠️ <strong>Important Note:</strong> Complete the code modifications and fill in all <code># TODO:</code> exercise blocks in the Python files first before running the terminal execution commands below!
+          </div>
           <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1rem; overflow-x:auto;">python train.py
 python predict.py --bill_length 48.5 --bill_depth 15.0 --flipper_length 217 --body_mass 5000</pre>
 
@@ -231,6 +235,27 @@ git push origin main</pre>
             <li style="margin-bottom:0.5rem;"><strong>Challenge 3: Multi-Model Evaluation</strong>: Compare performance across Decision Trees, Random Forests, and Logistic Regression models.</li>
           </ul>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Soundscape & Playlist Section -->
+    <section class="section" id="spotify">
+      <span class="section-label">Workshop Soundscape</span>
+      <h2 class="section-title">🎵 AI Club Workshop <span style="color:var(--color-primary);">Soundscape & Playlist</span></h2>
+      <p class="section-subtitle">Listen to the curated workshop playlist and featured track while building your ML classifier pipeline.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+        <!-- Billy Joel Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-music" style="color:var(--color-primary); margin-right:0.4rem;"></i> Featured Artist: Billy Joel</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/6W27Z4Mlzj1CGo3xsTXRju?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <!-- MSU AI Club Workshop Playlist Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-list-ul" style="color:var(--color-primary); margin-right:0.4rem;"></i> MSU AI Club Workshop Playlist</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3c5WgCEdJatgJeFhgUbVwN?utm_source=generator&theme=0&si=00521ac76fe046f5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
       </div>
     </section>
