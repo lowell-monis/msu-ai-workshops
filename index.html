@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="editorial-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSU AI Club | Workshops Home & Portfolio Journey</title>
+  <meta name="description" content="Michigan State University AI Club official workshop series landing page and interactive laboratory. Grounded in data ethics, AI pipelines, and portfolio development.">
+  
+  <!-- Rubik Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/css/all.min.css">
+</head>
+<body>
+
+  <!-- Particles.js Canvas Background -->
+  <div id="particles-js"></div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="wordmark">
+        MSU AI Club <span class="wordmark-badge">WORKSHOPS HOME</span>
+      </a>
+      <nav class="site-nav">
+        <a href="#workshops" class="nav-link active">Workshops</a>
+        <a href="#spotify" class="nav-link">Soundscape</a>
+        <a href="https://github.com/lowellmonis/msu-ai-workshops" target="_blank" class="nav-link" rel="noopener">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Workshops Home Hero Section -->
+    <section class="hero-wrapper" id="hero">
+      <div class="hero-meta">
+        <span class="hero-label">MICHIGAN STATE UNIVERSITY AI CLUB · FALL 2026 – SPRING 2027</span>
+      </div>
+      
+      <h1 class="hero-name">Introducing: <span style="color:var(--color-primary);">Portfolio-Oriented Workshops</span></h1>
+      
+      <p class="hero-headline">
+        This homepage introduces the new format for AI Club workshops this year. You will commence a year-long journey to collect artifacts and build your very own portfolio for AI, data science, and ML roles!
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener" class="btn btn-accent">
+          <i class="fas fa-calendar-alt"></i> AI Club Events
+        </a>
+      </div>
+    </section>
+
+    <!-- Workshop Grid Section -->
+    <section class="section" id="workshops">
+      <span class="section-label">Year-Long Workshop Series Roadmap</span>
+      <h2 class="section-title">Curated Workshop Modules</h2>
+      <p class="section-subtitle">Each workshop delivers a complete hands-on lab and exports a standardized artifact for your personal end-of-year AI portfolio.</p>
+
+      <div class="workshop-grid">
+        
+        <!-- Workshop 01 (Active) -->
+        <article class="workshop-card featured">
+          <div>
+            <div class="card-header-row">
+              <span class="card-num">WORKSHOP 01 · ACTIVE</span>
+              <span class="card-date">Sept 14, 2026 @ STEM 3202</span>
+            </div>
+            <h3 class="card-title">The Art of the Data Lifecycle: Storytelling in AI</h3>
+            <p class="card-desc">
+              Inspect upstream data missingness, audit standard data cleaning choices, compute legal disparate impact ratios under Cathy O'Neil's WMD framework, and simulate recursive feedback loops with human oversight dampeners.
+            </p>
+            <div class="presenter-pill">
+              <i class="fas fa-user-circle"></i> Presenters: Lowell Monis and Mariah Haymer
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Data Lineage</span>
+              <span class="tag-pill">Disparate Impact</span>
+              <span class="tag-pill">Feedback Loops</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <a href="./workshops/workshop1/index.html" class="btn btn-accent" style="width:100%; justify-content:center;">
+              Open Dedicated Workshop 01 Page <i class="fas fa-arrow-right" style="margin-left:0.4rem;"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Workshop 02 (Upcoming) -->
+        <article class="workshop-card">
+          <div>
+            <div class="card-header-row">
+              <span class="card-num">WORKSHOP 02 · UPCOMING</span>
+              <span class="card-date">Sept 21, 2026 @ STEM 3202</span>
+            </div>
+            <h3 class="card-title">A Bayesian Perspective on Machine Learning</h3>
+            <p class="card-desc">
+              Explore probabilistic graphical models, prior distributions, Bayes' theorem in parameter estimation, and uncertainty quantification in modern machine learning pipelines.
+            </p>
+            <div class="presenter-pill">
+              <i class="fas fa-user-circle"></i> Presenters: Lowell Monis and Ishan Sinha
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Bayesian ML</span>
+              <span class="tag-pill">Probabilistic Modeling</span>
+              <span class="tag-pill">Uncertainty Quant</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <button class="btn btn-ghost" style="width:100%; justify-content:center;" disabled>Opens Sept 21</button>
+          </div>
+        </article>
+
+        <!-- Workshop 03 (Upcoming) -->
+        <article class="workshop-card">
+          <div>
+            <div class="card-header-row">
+              <span class="card-num">WORKSHOP 03 · UPCOMING</span>
+              <span class="card-date">Sept 28, 2026 @ STEM 3202</span>
+            </div>
+            <h3 class="card-title">Reinforcement Learning: Building a Game-Playing Agent</h3>
+            <p class="card-desc">
+              Construct a Q-Learning and Deep Q-Network (DQN) agent from scratch using PyTorch and Gymnasium to master interactive game environment strategies.
+            </p>
+            <div class="presenter-pill">
+              <i class="fas fa-user-circle"></i> Presenter: Carson Breissinger
+            </div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Q-Learning</span>
+              <span class="tag-pill">PyTorch</span>
+              <span class="tag-pill">Gymnasium</span>
+            </div>
+          </div>
+          <div style="margin-top:1rem;">
+            <button class="btn btn-ghost" style="width:100%; justify-content:center;" disabled>Opens Sept 28</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Spotify Audio Section -->
+    <section class="section" id="spotify">
+      <span class="section-label">Workshop Soundscape</span>
+      <h2 class="section-title">🎵 AI Club Workshop Playlist</h2>
+
+      <div style="max-width:800px; margin:1.5rem auto 0 auto;">
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3c5WgCEdJatgJeFhgUbVwN?utm_source=generator&theme=0&si=00521ac76fe046f5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        MSU AI Club · Maintained by <a href="https://lowell-monis.github.io/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:none; font-weight:600;">Lowell Monis</a> & the MSU AI Club Workshop Team · © 2026 Michigan State University AI Club
+      </div>
+      <div class="footer-links">
+        <a href="https://www.msuaiclub.com/events" target="_blank" rel="noopener">Events Page</a>
+        <a href="https://github.com/lowellmonis/msu-ai-workshops" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Application JS -->
+  <script src="app.js"></script>
+</body>
+</html>
