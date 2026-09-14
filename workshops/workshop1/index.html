@@ -58,7 +58,7 @@
       </p>
 
       <p class="hero-tagline">
-        💡 <strong>Portfolio Artifact Page 1:</strong> Running this lab produces your first standardized portfolio summary (`audit_summary.md`), establishing Page 1 of your year-long MSU AI Club Portfolio!
+        ⚡ <strong>Mini Project:</strong> Run interactive bias audit simulations, adjust human oversight sampling rates, and download the analysis notebook and dataset.
       </p>
 
       <div class="hero-actions">
@@ -88,7 +88,7 @@
           
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 1: In-Browser Interactive Suite (Zero Installation)</h3>
           <p style="color:var(--text-muted); margin-bottom:1rem;">
-            You can run the full lab right below on this page. Execute cells, adjust the <strong>Human Oversight Audit Slider</strong> (0% to 50%), and click <strong>📜 Export Portfolio Artifact</strong> to save <code>audit_summary.md</code>.
+            You can run the interactive simulation below. Execute cells, adjust the <strong>Human Oversight Audit Slider</strong> (0% to 50%), and download <code>audit_summary.md</code>.
           </p>
 
           <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">Option 2: Google Colab</h3>
@@ -128,14 +128,13 @@ jupyter notebook data_lineage_inspector.ipynb
     <section class="section" id="simulator">
       <span class="section-label">Workshop 01 Interactive Laboratory</span>
       <h2 class="section-title">The Data Lineage Inspector & <span style="color:var(--color-primary);">Feedback Loop Simulator</span></h2>
-      <p class="section-subtitle">Execute the pipeline in your browser. Inspect missing features, audit cleaning filters, adjust human review audit sampling rates, and export your portfolio summary.</p>
+      <p class="section-subtitle">Execute the pipeline in your browser. Inspect missing features, audit demographic cleaning impacts, and test human oversight sampling rates in real time.</p>
 
       <div class="simulator-workspace">
         <div class="tabs-nav">
           <button class="tab-btn active" data-tab="tab-sim">💻 Interactive Cell Simulator</button>
           <button class="tab-btn" data-tab="tab-branch">🔀 "Choose the Data's Fate"</button>
-          <button class="tab-btn" data-tab="tab-port">📜 Portfolio Artifact Template</button>
-          <button class="tab-btn" data-tab="tab-git">🐙 GitHub & PR Guide</button>
+          <button class="tab-btn" data-tab="tab-git">🐙 Project Repo & PR Guide</button>
         </div>
 
         <!-- Tab 1: Simulator -->
@@ -218,13 +217,13 @@ simulated_next_gen_data = apply_human_oversight(model_predictions, audit_rate=0.
           <!-- Cell 5 -->
           <div class="cell-block">
             <div class="cell-header">
-              <span class="cell-title">Cell 5: Part 5 — Exporting Your Portfolio Artifact</span>
-              <span class="wordmark-badge">Artifact Exporter</span>
+              <span class="cell-title">Cell 5: Part 5 — Exporting Executive Audit Summary</span>
+              <span class="wordmark-badge">Summary Exporter</span>
             </div>
             <div class="cell-code">export_audit_summary(file_name="audit_summary.md")</div>
             <div style="padding:1.5rem; text-align:center;">
               <button class="btn btn-accent" id="export-artifact-btn" style="font-size:1rem; padding:0.85rem 2rem;">
-                📜 Export & Download Portfolio Artifact (audit_summary.md)
+                📥 Export Executive Audit Summary (audit_summary.md)
               </button>
             </div>
           </div>
@@ -240,66 +239,25 @@ simulated_next_gen_data = apply_human_oversight(model_predictions, audit_rate=0.
           <div id="branching-container" style="min-height:300px;"></div>
         </div>
 
-        <!-- Tab 3: Portfolio Template -->
-        <div class="tab-content" id="tab-port">
-          <div style="margin-bottom:1.5rem;">
-            <h3 style="font-size:1.4rem; color:var(--text-bright); margin-bottom:0.5rem;">📜 Portfolio Page 1: Data Lifecycle Map</h3>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Template for Page 1 of your year-long MSU AI Club portfolio.</p>
-          </div>
-          <div style="margin-bottom:1.5rem;">
-            <a href="data_lifecycle_map_template.md" download class="btn btn-solid">
-              <i class="fas fa-download"></i> Download data_lifecycle_map_template.md
-            </a>
-          </div>
-          <pre style="background:#040406; padding:1.5rem; border-radius:var(--radius-md); font-family:var(--font-code); font-size:0.85rem; color:#9a9fb2; overflow-x:auto; border:1px solid var(--border-color);">
-# 🗺️ Data Lifecycle Map (Portfolio Page 1)
-**Student Name**: [Your Name]
-**Date**: September 14, 2026
-**Workshop**: MSU AI Club Fall Kickoff — The Art of the Data Lifecycle
-
-## The 6 Lifecycle Stages & Ethical Commitments
-
-1. **Generation**: Who created this data? What human experiences were flattened? [2]
-   - *Ethical Commitment*: I will document missing variables and unmeasured populations.
-
-2. **Collection**: What pathways were used? Who was excluded by default? [2]
-   - *Ethical Commitment*: I will advocate for multi-track alternative data collection.
-
-3. **Processing / Cleaning**: What did cleaning delete or censor? [2]
-   - *Ethical Commitment*: I will audit dropna() impact on underrepresented cohorts.
-
-4. **Modeling**: What objective function was chosen? Is there opacity? [1]
-   - *Ethical Commitment*: I will audit disparate impact ratios against legal thresholds.
-
-5. **Deployment / Action**: How do predictions re-enter the real world? [1], [3]
-   - *Ethical Commitment*: I will enforce human review audit loops on automated decisions.
-
-6. **Archival / Feedback**: How is data retained or recycled for future training? [1], [4]
-   - *Ethical Commitment*: I will prevent unmitigated recursive feedback cascades.
-          </pre>
-        </div>
-
-        <!-- Tab 4: GitHub PR Guide -->
+        <!-- Tab 3: GitHub PR Guide -->
         <div class="tab-content" id="tab-git">
           <div style="margin-bottom:1.5rem;">
-            <h3 style="font-size:1.4rem; color:var(--text-bright); margin-bottom:0.5rem;">🐙 GitHub Setup & Pull Request (PR) Guide</h3>
-            <p style="color:var(--text-muted); font-size:0.95rem;">Step-by-step guide on creating repos, pushing artifacts, and contributing PRs.</p>
+            <h3 style="font-size:1.4rem; color:var(--text-bright); margin-bottom:0.5rem;">🐙 Project Repository & PR Guide</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem;">Instructions on running the mini project locally and contributing via Pull Requests.</p>
           </div>
           
           <div style="line-height:1.8; font-size:0.95rem;">
-            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">1. Initialize Your Personal Portfolio Repo</h4>
+            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">1. Clone & Run Project Locally</h4>
             <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); margin-bottom:1.25rem; border:1px solid var(--border-color);">
-mkdir msu-ai-portfolio
-cd msu-ai-portfolio
-git init
-git add data_lineage_inspector.ipynb audit_summary.md README.md
-git commit -m "Add Workshop 1 Data Lineage Artifact"
-git remote add origin https://github.com/YOUR_USERNAME/msu-ai-portfolio.git
-git branch -M main
-git push -u origin main
+# Clone repository
+git clone https://github.com/lowell-monis/msu-ai-workshops.git
+cd msu-ai-workshops/workshops/workshop1
+
+# Run verification pipeline
+python verify_notebook.py
             </pre>
 
-            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">2. How to Report Issues & Submit Pull Requests (PRs)</h4>
+            <h4 style="color:var(--color-primary); margin-bottom:0.5rem;">2. Report Issues & Submit Pull Requests (PRs)</h4>
             <ul style="padding-left:1.2rem; color:var(--text-main);">
               <li style="margin-bottom:0.5rem;"><strong>Report Issues</strong>: Go to the main GitHub repo ➔ <em>Issues</em> tab ➔ <em>New Issue</em>.</li>
               <li style="margin-bottom:0.5rem;"><strong>Submit a PR</strong>: Fork the repository ➔ create a topic branch (`git checkout -b feature/my-feature`) ➔ test locally (`python verify_notebook.py`) ➔ push and open a Pull Request!</li>

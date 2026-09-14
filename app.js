@@ -243,8 +243,8 @@ function generateAndDownloadArtifact() {
   const q1Text = document.getElementById("q1-input")?.value || "The dataset lacks non-traditional financial metrics like rental payment history and gig economy stability [2].";
   const q2Text = document.getElementById("q2-input")?.value || "Group B suffers from missing credit scores (Damage). The black box classifier hides feature weighting (Opacity) [1].";
 
-  const content = `# 📜 Portfolio Artifact: Data Lineage & Feedback Loop Audit
-**Author / Student**: MSU AI Club Member  
+  const content = `# 📜 Executive Audit Summary: Data Lineage & Feedback Loop Audit
+**Author**: MSU AI Club Member  
 **Workshop Date**: September 14, 2026  
 **Event**: Kickoff Workshop — *The Art of the Data Lifecycle: Storytelling in AI*  
 **Today's Track**: Billy Joel — *Vienna*  
@@ -299,7 +299,7 @@ function generateAndDownloadArtifact() {
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
 
-  alert("🎉 Portfolio artifact exported successfully as 'audit_summary.md'!");
+  alert("✅ Audit summary exported successfully as 'audit_summary.md'!");
 }
 
 // --- Interactive Branching Activity ---
