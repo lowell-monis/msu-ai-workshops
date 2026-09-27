@@ -24,7 +24,7 @@
 
   <!-- Header Navigation -->
   <header class="site-header">
-    <div class="header-inner">
+    <div class="header-inner" style="max-width:100%; padding:0 3rem;">
       <a href="../../index.html" class="wordmark">
         <i class="fas fa-chevron-left" style="font-size:0.8rem; color:var(--color-primary);"></i> MSU AI Club <span class="wordmark-badge">Workshop 02</span>
       </a>
@@ -32,7 +32,6 @@
         <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
         <a href="#quickstart" class="nav-link">Quickstart</a>
         <a href="#tasks" class="nav-link">Task Guide</a>
-        <a href="#repo-org" class="nav-link">Repo Guide</a>
         <a href="#spotify" class="nav-link">Soundscape</a>
         <a href="https://github.com/lowell-monis/msu-ai-workshops/tree/main/workshops/workshop2" target="_blank" class="nav-link" rel="noopener">
           <i class="fab fa-github"></i> Workshop Repo
@@ -41,7 +40,7 @@
     </div>
   </header>
 
-  <div class="container">
+  <div class="container" style="max-width:100%; padding:3rem 3rem;">
     
     <!-- Workshop 02 Hero Header -->
     <section class="hero-wrapper" id="hero">
@@ -49,13 +48,13 @@
         <span class="hero-label">WORKSHOP 02 · SEPTEMBER 28, 2026 @ 6:00 PM · STEM 3202</span>
       </div>
       
-      <h1 class="hero-name">The Mechanics of Motivation: <span style="color:var(--color-primary);">Pac-Man Agent via RL</span></h1>
+      <h1 class="hero-name" style="max-width:100%;">The Mechanics of Motivation: <span style="color:var(--color-primary);">Pac-Man Agent via RL</span></h1>
       
-      <p class="hero-headline">
+      <p class="hero-headline" style="max-width:100%;">
         Master the core loop of Reinforcement Learning by building an autonomous Pac-Man agent from scratch. Navigate mazes, eat pellets, evade chasing ghosts, and balance exploration vs. exploitation using Tabular Q-Learning and Bellman value updates.
       </p>
 
-      <p class="hero-tagline">
+      <p class="hero-tagline" style="max-width:100%;">
         ⚡ <strong>Jupyter Notebook Lab:</strong> Work through <code>RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb</code> to complete the Epsilon-Greedy policy and Bellman Q-Learning update equation!
       </p>
 
@@ -79,9 +78,9 @@
     <section class="section" id="quickstart">
       <span class="section-label">Execution & Workflow Guide</span>
       <h2 class="section-title">Quickstart: Choose Your Setup & Open Notebook</h2>
-      <p class="section-subtitle">Work directly online in Google Colab or set up locally using JupyterLab/VS Code.</p>
+      <p class="section-subtitle" style="max-width:100%;">Work directly online in Google Colab or run locally using JupyterLab, Anaconda, or MSU DECS JupyterHub.</p>
 
-      <div class="simulator-workspace" style="padding:2rem;">
+      <div class="simulator-workspace" style="padding:2rem; width:100%;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
           <!-- Option A: Google Colab -->
@@ -106,26 +105,39 @@
             </div>
           </div>
 
-          <!-- Option B: Local JupyterLab / VS Code -->
-          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fas fa-desktop" style="margin-right:0.4rem;"></i> Option B: Run Locally via JupyterLab or VS Code</h3>
+          <!-- Option B: Local JupyterLab, Anaconda, or MSU DECS JupyterHub -->
+          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fas fa-desktop" style="margin-right:0.4rem;"></i> Option B: Run via Local JupyterLab, Anaconda, or MSU JupyterHub</h3>
           <div style="background:#080b12; border:1px solid #1e293b; padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem;">
+            
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Step 1: Direct Download Workshop Notebook File (.ipynb)</p>
             <p style="color:var(--text-muted); margin-bottom:0.75rem;">
-              If you already have a local Python environment, click below to directly download the raw <code>.ipynb</code> notebook files without visiting GitHub:
+              Click below to directly download the raw <code>.ipynb</code> notebook files to your computer without visiting GitHub:
             </p>
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.5rem;">
               <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_%E2%80%94_Handout_(Attendee_Copy).ipynb" download class="btn btn-solid" style="font-size:0.85rem;">
-                <i class="fas fa-download"></i> Direct Download: Handout (.ipynb)
+                <i class="fas fa-download"></i> Direct Download: Handout Notebook (.ipynb)
               </a>
               <a id="solution-raw-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
-                <i class="fas fa-lock"></i> Direct Download: Solution (.ipynb)
+                <i class="fas fa-lock"></i> Direct Download: Solution Notebook (.ipynb)
               </a>
             </div>
 
-            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Or Clone the Repository & Launch JupyterLab:</p>
-            <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">git clone https://github.com/lowell-monis/msu-ai-workshops.git
-cd msu-ai-workshops/workshops/workshop2
-pip install numpy matplotlib jupyter
-jupyter lab "RL_PacMan_Q_Learning_Workshop_—_Handout_(Attendee_Copy).ipynb"</pre>
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Step 2: Choose Your Execution Environment</p>
+            
+            <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.7; margin-bottom:0.5rem;">
+              <li style="margin-bottom:0.75rem;">
+                <strong>1. Standard Python / Terminal</strong>: Install required packages and launch JupyterLab:
+                <pre style="background:#040406; padding:0.75rem 1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-top:0.35rem; margin-bottom:0.5rem; overflow-x:auto;">pip install numpy matplotlib jupyter
+jupyter lab</pre>
+              </li>
+              <li style="margin-bottom:0.75rem;">
+                <strong>2. Anaconda Navigator</strong>: If you use Anaconda, download <a href="https://www.anaconda.com/download" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:underline;">Anaconda Distribution</a>, launch JupyterLab or Jupyter Notebook from Anaconda Navigator, and open your downloaded <code>.ipynb</code> file.
+              </li>
+              <li>
+                <strong>3. MSU Engineering DECS JupyterHub (For EGR Students)</strong>: Engineering students or attendees with an active DECS account can log into <a href="https://jupyterhub.egr.msu.edu/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:underline;">MSU EGR JupyterHub</a> and upload the downloaded <code>.ipynb</code> file directly into their cloud environment.
+              </li>
+            </ul>
+
           </div>
 
           <!-- Note alert box -->
@@ -141,7 +153,7 @@ jupyter lab "RL_PacMan_Q_Learning_Workshop_—_Handout_(Attendee_Copy).ipynb"</p
     <section class="section" id="tasks">
       <span class="section-label">Step-by-Step Task Guide</span>
       <h2 class="section-title">Workshop Tasks & <span style="color:var(--color-primary);">Completion Instructions</span></h2>
-      <p class="section-subtitle">Follow these instructions step-by-step to fill in the <code># TODO:</code> exercise blocks in your notebook and train your reinforcement learning agent.</p>
+      <p class="section-subtitle" style="max-width:100%;">Follow these instructions step-by-step to fill in the <code># TODO:</code> exercise blocks in your notebook and train your reinforcement learning agent.</p>
 
       <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
         
@@ -240,40 +252,11 @@ q_table[state][action] += ALPHA * (target - q_table[state][action])</pre>
       </div>
     </section>
 
-    <!-- Repository File Organization Guide Section -->
-    <section class="section" id="repo-org">
-      <span class="section-label">Repository Architecture</span>
-      <h2 class="section-title">Recommended <span style="color:var(--color-primary);">RL Repository Structure</span></h2>
-      <p class="section-subtitle">A clean, industry-standard folder hierarchy for organizing reinforcement learning agents, environment code, and training logs.</p>
-
-      <div class="simulator-workspace" style="padding:2rem;">
-        <div style="line-height:1.8; font-size:0.95rem;">
-          
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Standard Professional Folder Hierarchy</h3>
-          <p style="color:var(--text-muted); margin-bottom:1rem;">
-            Organize modular RL codebase components into clean directory folders <strong style="color:var(--color-primary);">(Note: Not all folders are needed — use what applies to your specific project!)</strong>:
-          </p>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">rl-pacman-project/
-├── README.md               # Project overview, setup commands, & Q-learning summary
-├── .gitignore              # Ignore rules for cache, checkpoints, and saved logs
-├── requirements.txt        # Python package dependencies (numpy, matplotlib, jupyter)
-├── notebooks/              # Interactive Jupyter notebooks for training & experimentation
-├── src/                    # Modular Python source code
-│   ├── env/                # Maze environment, ghost AI, & rendering engine
-│   ├── agents/             # Tabular Q-learning agent & Epsilon-Greedy policy
-│   └── utils/              # Plotting, rolling average helpers, & metrics logger
-├── models/                 # Serialized Q-tables (.npy or .pkl binaries)
-└── plots/                  # Exported learning curves & evaluation charts</pre>
-
-        </div>
-      </div>
-    </section>
-
     <!-- Workshop Soundscape & Playlist Section -->
     <section class="section" id="spotify">
       <span class="section-label">Workshop Soundscape</span>
       <h2 class="section-title">🎵 AI Club Workshop <span style="color:var(--color-primary);">Soundscape & Playlist</span></h2>
-      <p class="section-subtitle">Listen to the featured track and workshop playlist while training your Q-learning Pac-Man agent.</p>
+      <p class="section-subtitle" style="max-width:100%;">Listen to the featured track and workshop playlist while training your Q-learning Pac-Man agent.</p>
 
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
         <!-- Tubthumping Embed -->
@@ -294,7 +277,7 @@ q_table[state][action] += ALPHA * (target - q_table[state][action])</pre>
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="footer-inner">
+    <div class="footer-inner" style="max-width:100%; padding:0 3rem;">
       <div>
         MSU AI Club · Maintained by <a href="https://lowell-monis.github.io/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:none; font-weight:600;">Lowell Monis</a> & the <span style="color:var(--color-primary); font-weight:600;">MSU AI Club Workshop Team</span> · © 2026 Michigan State University AI Club
       </div>
@@ -356,7 +339,7 @@ q_table[state][action] += ALPHA * (target - q_table[state][action])</pre>
             rawBtn.classList.add('btn-solid');
             rawBtn.style.opacity = '1';
             rawBtn.style.cursor = 'pointer';
-            rawBtn.innerHTML = '<i class="fas fa-download"></i> Direct Download: Solution (.ipynb)';
+            rawBtn.innerHTML = '<i class="fas fa-download"></i> Direct Download: Solution Notebook (.ipynb)';
             rawBtn.title = 'Solution unlocked!';
           }
         } else {
