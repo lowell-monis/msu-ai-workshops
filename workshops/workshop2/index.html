@@ -60,11 +60,11 @@
       </p>
 
       <div class="hero-actions">
-        <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb" target="_blank" rel="noopener" class="btn btn-solid">
-          <i class="fab fa-github"></i> Open GitHub Notebook
+        <a href="https://colab.research.google.com/drive/1BlAyk-_vhTV1XiQNZy-zlDDp_f53dVlD?usp=sharing" target="_blank" rel="noopener" class="btn btn-solid">
+          <i class="fas fa-external-link-alt"></i> Open Colab Notebook (Handout)
         </a>
-        <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb" target="_blank" rel="noopener" class="btn btn-ghost">
-          <i class="fas fa-external-link-alt"></i> Open Notebook on GitHub
+        <a id="solution-colab-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed;" title="Solution unlocks at 7:00 PM">
+          <i class="fas fa-lock"></i> Solution Notebook (Locked)
         </a>
         <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener" class="btn btn-accent">
           <i class="fas fa-ticket-alt"></i> Workshop Check-in
@@ -78,27 +78,57 @@
     <!-- Quickstart & Reproduction Guide Section -->
     <section class="section" id="quickstart">
       <span class="section-label">Execution & Workflow Guide</span>
-      <h2 class="section-title">Quickstart: Clone & Run the Notebook</h2>
-      <p class="section-subtitle">Download or open the workshop notebook to explore the Pac-Man environment, fill in the Q-learning policy, and train your agent.</p>
+      <h2 class="section-title">Quickstart: Choose Your Setup & Open Notebook</h2>
+      <p class="section-subtitle">Work directly online in Google Colab or set up locally using JupyterLab/VS Code.</p>
 
       <div class="simulator-workspace" style="padding:2rem;">
         <div style="line-height:1.8; font-size:0.95rem;">
           
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clone Workshop Repository & Install Dependencies</h3>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">git clone https://github.com/lowell-monis/msu-ai-workshops.git
+          <!-- Option A: Google Colab -->
+          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fab fa-google" style="margin-right:0.4rem;"></i> Option A: Run in Google Colab (Recommended)</h3>
+          <div style="background:#080b12; border:1px solid #1e293b; padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.75rem;">
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Important Google Colab Instructions:</p>
+            <ol style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.7;">
+              <li style="margin-bottom:0.5rem;">
+                <strong>1. Use a Personal Google Account (Not MSU Account)</strong>: Do <em>not</em> open Colab while signed into your <code>@msu.edu</code> Google account due to organizational sharing policies. If you already opened the link using your MSU account, open the link again in an <strong>Incognito Window</strong> or switch to your personal Google account.
+              </li>
+              <li>
+                <strong>2. Save a Copy to Your Google Drive First</strong>: Once opened, click <code>File</code> ➔ <code>Save a copy in Drive</code>. Work inside your personal saved copy so your edits and exercise code are preserved.
+              </li>
+            </ol>
+            <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="https://colab.research.google.com/drive/1BlAyk-_vhTV1XiQNZy-zlDDp_f53dVlD?usp=sharing" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:0.85rem;">
+                <i class="fas fa-external-link-alt"></i> Open Handout Colab Notebook
+              </a>
+              <a id="solution-colab-quickstart-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
+                <i class="fas fa-lock"></i> Solution Colab Notebook (Locked)
+              </a>
+            </div>
+          </div>
+
+          <!-- Option B: Local JupyterLab / VS Code -->
+          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fas fa-desktop" style="margin-right:0.4rem;"></i> Option B: Run Locally via JupyterLab or VS Code</h3>
+          <div style="background:#080b12; border:1px solid #1e293b; padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem;">
+            <p style="color:var(--text-muted); margin-bottom:0.75rem;">
+              If you already have a local Python environment, click below to directly download the raw <code>.ipynb</code> notebook files without visiting GitHub:
+            </p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.25rem;">
+              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_%E2%80%94_Handout_(Attendee_Copy).ipynb" download class="btn btn-solid" style="font-size:0.85rem;">
+                <i class="fas fa-download"></i> Direct Download: Handout (.ipynb)
+              </a>
+              <a id="solution-raw-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
+                <i class="fas fa-lock"></i> Direct Download: Solution (.ipynb)
+              </a>
+            </div>
+
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Or Clone the Repository & Launch JupyterLab:</p>
+            <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;">git clone https://github.com/lowell-monis/msu-ai-workshops.git
 cd msu-ai-workshops/workshops/workshop2
-pip install numpy matplotlib jupyter</pre>
+pip install numpy matplotlib jupyter
+jupyter lab "RL_PacMan_Q_Learning_Workshop_—_Handout_(Attendee_Copy).ipynb"</pre>
+          </div>
 
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Workflow Step A: Open Handout Notebook</h3>
-          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
-            Launch Jupyter Notebook to open <code>RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb</code>:
-          </p>
-          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">jupyter notebook "RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb"</pre>
-
-          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Workflow Step B: Complete Policy & Training Logic</h3>
-          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
-            Inspect Parts 4 & 5 to complete the <code># TODO:</code> exercise blocks for action selection and the Bellman equation:
-          </p>
+          <!-- Note alert box -->
           <div style="background:#100d04; border:1px solid #f59e0b; padding:0.75rem 1rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-size:0.88rem; color:#f59e0b;">
             ⚠️ <strong>Important Note:</strong> Complete the code modifications and fill in all <code># TODO:</code> exercise blocks in the notebook before running the training execution cells!
           </div>
@@ -278,5 +308,79 @@ q_table[state][action] += ALPHA * (target - q_table[state][action])</pre>
 
   <!-- Application JS -->
   <script src="../../app.js"></script>
+
+  <!-- Auto Time-Lock Script for Solution Release -->
+  <script>
+    (function initSolutionTimeLock() {
+      // Set solution release timestamp (September 28, 2026 @ 7:00 PM EDT)
+      const UNLOCK_TIMESTAMP = new Date('2026-09-28T19:00:00-04:00').getTime();
+      const COLAB_SOLUTION_URL = 'https://colab.research.google.com/drive/1egEbo0eZeZSDdandc3P8Ou-MHyuVZZEX?usp=sharing';
+      const RAW_SOLUTION_URL = 'https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_%E2%80%94_Fully_Worked_Solution.ipynb';
+
+      function updateLockState() {
+        const now = Date.now();
+        const heroBtn = document.getElementById('solution-colab-btn');
+        const colabQuickBtn = document.getElementById('solution-colab-quickstart-btn');
+        const rawBtn = document.getElementById('solution-raw-btn');
+
+        if (now >= UNLOCK_TIMESTAMP) {
+          // Unlocked state
+          if (heroBtn) {
+            heroBtn.href = COLAB_SOLUTION_URL;
+            heroBtn.target = '_blank';
+            heroBtn.rel = 'noopener';
+            heroBtn.classList.remove('btn-ghost');
+            heroBtn.classList.add('btn-solid');
+            heroBtn.style.opacity = '1';
+            heroBtn.style.cursor = 'pointer';
+            heroBtn.innerHTML = '<i class="fas fa-key" style="color:#f59e0b;"></i> Open Solution Colab';
+            heroBtn.title = 'Solution unlocked!';
+          }
+
+          if (colabQuickBtn) {
+            colabQuickBtn.href = COLAB_SOLUTION_URL;
+            colabQuickBtn.target = '_blank';
+            colabQuickBtn.rel = 'noopener';
+            colabQuickBtn.classList.remove('btn-ghost');
+            colabQuickBtn.classList.add('btn-solid');
+            colabQuickBtn.style.opacity = '1';
+            colabQuickBtn.style.cursor = 'pointer';
+            colabQuickBtn.innerHTML = '<i class="fas fa-key" style="color:#f59e0b;"></i> Open Solution Colab';
+            colabQuickBtn.title = 'Solution unlocked!';
+          }
+
+          if (rawBtn) {
+            rawBtn.href = RAW_SOLUTION_URL;
+            rawBtn.download = '';
+            rawBtn.classList.remove('btn-ghost');
+            rawBtn.classList.add('btn-solid');
+            rawBtn.style.opacity = '1';
+            rawBtn.style.cursor = 'pointer';
+            rawBtn.innerHTML = '<i class="fas fa-download"></i> Direct Download: Solution (.ipynb)';
+            rawBtn.title = 'Solution unlocked!';
+          }
+        } else {
+          // Locked countdown state
+          const diffMs = UNLOCK_TIMESTAMP - now;
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+          const timeText = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+
+          if (heroBtn) {
+            heroBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Colab (Unlocks in ${timeText})`;
+          }
+          if (colabQuickBtn) {
+            colabQuickBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Colab (Unlocks in ${timeText})`;
+          }
+          if (rawBtn) {
+            rawBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Download (Unlocks in ${timeText})`;
+          }
+        }
+      }
+
+      updateLockState();
+      setInterval(updateLockState, 30000);
+    })();
+  </script>
 </body>
 </html>
