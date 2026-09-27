@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSU AI Club | Workshop 02: Reinforcement Learning & Q-Learning Pac-Man Agent</title>
+  <meta name="description" content="MSU AI Club Workshop 02: Reinforcement Learning & Q-Learning Pac-Man Agent. Train an autonomous RL agent using Q-Learning, Epsilon-Greedy exploration, and reward shaping.">
+  
+  <!-- Rubik Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+  <!-- Background Particle Network -->
+  <div id="particles-js"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../../index.html" class="wordmark">
+        <i class="fas fa-chevron-left" style="font-size:0.8rem; color:var(--color-primary);"></i> MSU AI Club <span class="wordmark-badge">Workshop 02</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
+        <a href="#quickstart" class="nav-link">Quickstart</a>
+        <a href="#tasks" class="nav-link">Task Guide</a>
+        <a href="#repo-org" class="nav-link">Repo Guide</a>
+        <a href="#spotify" class="nav-link">Soundscape</a>
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/tree/main/workshops/workshop2" target="_blank" class="nav-link" rel="noopener">
+          <i class="fab fa-github"></i> Workshop Repo
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <!-- Workshop 02 Hero Header -->
+    <section class="hero-wrapper" id="hero">
+      <div class="hero-meta">
+        <span class="hero-label">WORKSHOP 02 · SEPTEMBER 28, 2026 @ 6:00 PM · STEM 3202</span>
+      </div>
+      
+      <h1 class="hero-name">Reinforcement Learning: <span style="color:var(--color-primary);">Q-Learning Pac-Man Agent</span></h1>
+      
+      <p class="hero-headline">
+        Master the core loop of Reinforcement Learning by building an autonomous Pac-Man agent from scratch. Navigate mazes, eat pellets, evade chasing ghosts, and balance exploration vs. exploitation using Tabular Q-Learning and Bellman value updates.
+      </p>
+
+      <p class="hero-tagline">
+        ⚡ <strong>Jupyter Notebook Lab:</strong> Work through <code>RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb</code> to complete the Epsilon-Greedy policy and Bellman Q-Learning update equation!
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb" target="_blank" rel="noopener" class="btn btn-solid">
+          <i class="fab fa-github"></i> Open GitHub Notebook
+        </a>
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop2/RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb" target="_blank" rel="noopener" class="btn btn-ghost">
+          <i class="fas fa-external-link-alt"></i> Open Notebook on GitHub
+        </a>
+        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener" class="btn btn-accent">
+          <i class="fas fa-ticket-alt"></i> Workshop Check-in
+        </a>
+        <span class="btn btn-ghost" style="opacity:0.7; cursor:not-allowed;" title="Companion Article Coming Soon">
+          <i class="fas fa-newspaper"></i> Companion Article <span class="wordmark-badge" style="font-size:0.65rem; border-color:rgba(255,255,255,0.2); color:var(--text-muted); margin-left:0.2rem;">Upcoming</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- Quickstart & Reproduction Guide Section -->
+    <section class="section" id="quickstart">
+      <span class="section-label">Execution & Workflow Guide</span>
+      <h2 class="section-title">Quickstart: Clone & Run the Notebook</h2>
+      <p class="section-subtitle">Download or open the workshop notebook to explore the Pac-Man environment, fill in the Q-learning policy, and train your agent.</p>
+
+      <div class="simulator-workspace" style="padding:2rem;">
+        <div style="line-height:1.8; font-size:0.95rem;">
+          
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Clone Workshop Repository & Install Dependencies</h3>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">git clone https://github.com/lowell-monis/msu-ai-workshops.git
+cd msu-ai-workshops/workshops/workshop2
+pip install numpy matplotlib jupyter</pre>
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">2. Workflow Step A: Open Handout Notebook</h3>
+          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
+            Launch Jupyter Notebook to open <code>RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb</code>:
+          </p>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-bottom:1.5rem; overflow-x:auto;">jupyter notebook "RL_PacMan_Q_Learning_Workshop_-_Handout_(Attendee_Copy).ipynb"</pre>
+
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">3. Workflow Step B: Complete Policy & Training Logic</h3>
+          <p style="color:var(--text-muted); margin-bottom:0.5rem;">
+            Inspect Parts 4 & 5 to complete the <code># TODO:</code> exercise blocks for action selection and the Bellman equation:
+          </p>
+          <div style="background:#100d04; border:1px solid #f59e0b; padding:0.75rem 1rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-size:0.88rem; color:#f59e0b;">
+            ⚠️ <strong>Important Note:</strong> Complete the code modifications and fill in all <code># TODO:</code> exercise blocks in the notebook before running the training execution cells!
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Tasks & Step-by-Step Instructions Section -->
+    <section class="section" id="tasks">
+      <span class="section-label">Step-by-Step Task Guide</span>
+      <h2 class="section-title">Workshop Tasks & <span style="color:var(--color-primary);">Completion Instructions</span></h2>
+      <p class="section-subtitle">Follow these instructions step-by-step to fill in the <code># TODO:</code> exercise blocks in your notebook and train your reinforcement learning agent.</p>
+
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
+        
+        <!-- Task 1 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 1</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Explore Environment & State-Action Space (Parts 1 & 2)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Run Parts 1 & 2 of the notebook to examine the Pac-Man environment:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Inspect the 7x7 grid maze layout, pellet locations, and ghost initial position.</li>
+            <li>Observe the random baseline agent to see pure exploration (zero exploitation) before any Q-learning takes place.</li>
+          </ul>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 2</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Review Hyperparameters & Reward Shaping (Part 3)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Inspect the hyperparameter table controlling training dynamics:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li><code>ALPHA</code>: Learning rate determining update step size.</li>
+            <li><code>GAMMA</code>: Discount factor weighting immediate vs. future rewards.</li>
+            <li><code>EPSILON_START</code> / <code>EPSILON_MIN</code> / <code>EPSILON_DECAY</code>: Exploration decay schedule.</li>
+            <li><code>PELLET_REWARD</code>, <code>GHOST_PENALTY</code>, <code>WIN_REWARD</code>, <code>STEP_PENALTY</code>: Reward shaping parameters.</li>
+          </ul>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 3</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Implement Epsilon-Greedy Exploitation Branch (Part 4 - TODO)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Locate Part 4 in the notebook and complete the exploitation branch of the Epsilon-Greedy policy:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Return the action index with the highest Q-value for the current state
+action = np.argmax(q_table[state])</pre>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Implement the Bellman Q-Learning Update Equation (Part 5 - TODO)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Locate Part 5 in the training loop and fill in the Bellman update rule:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate best_next_q, target, and update q_table[state][action]
+best_next_q = 0 if done else np.max(q_table[next_state])
+target = reward + GAMMA * best_next_q
+q_table[state][action] += ALPHA * (target - q_table[state][action])</pre>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 5</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Train Agent & Plot Learning Curves (Parts 6, 7 & 8)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Train your Q-learning model across 1,000+ episodes and evaluate performance:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Execute the training loop and observe win rate climbing.</li>
+            <li>Plot total reward per episode and rolling averages to verify convergence.</li>
+            <li>Set <code>epsilon = 0</code> to test your fully trained policy in action.</li>
+          </ul>
+        </div>
+
+        <!-- Task 6 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 6</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Conduct Hyperparameter Experiments (Part 9)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Experiment with at least 2-3 hyperparameter variations in Part 9:
+          </p>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Test fast decay (<code>EPSILON_DECAY = 0.99</code>) vs. slow decay (<code>0.9999</code>).</li>
+            <li>Compare short-sighted (<code>GAMMA = 0.1</code>) vs. far-sighted (<code>GAMMA = 0.99</code>) agents.</li>
+            <li>Adjust reward shaping parameters (<code>STEP_PENALTY</code>, <code>GHOST_PENALTY</code>) to analyze behavioral changes.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Repository File Organization Guide Section -->
+    <section class="section" id="repo-org">
+      <span class="section-label">Repository Architecture</span>
+      <h2 class="section-title">Recommended <span style="color:var(--color-primary);">RL Repository Structure</span></h2>
+      <p class="section-subtitle">A clean, industry-standard folder hierarchy for organizing reinforcement learning agents, environment code, and training logs.</p>
+
+      <div class="simulator-workspace" style="padding:2rem;">
+        <div style="line-height:1.8; font-size:0.95rem;">
+          
+          <h3 style="color:var(--color-primary); font-size:1.1rem; margin-bottom:0.5rem;">1. Standard Professional Folder Hierarchy</h3>
+          <p style="color:var(--text-muted); margin-bottom:1rem;">
+            Organize modular RL codebase components into clean directory folders <strong style="color:var(--color-primary);">(Note: Not all folders are needed — use what applies to your specific project!)</strong>:
+          </p>
+          <pre style="background:#040406; padding:1.25rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:#9a9fb2; margin-bottom:1.5rem; border:1px solid var(--border-color); overflow-x:auto;">rl-pacman-project/
+├── README.md               # Project overview, setup commands, & Q-learning summary
+├── .gitignore              # Ignore rules for cache, checkpoints, and saved logs
+├── requirements.txt        # Python package dependencies (numpy, matplotlib, jupyter)
+├── notebooks/              # Interactive Jupyter notebooks for training & experimentation
+├── src/                    # Modular Python source code
+│   ├── env/                # Maze environment, ghost AI, & rendering engine
+│   ├── agents/             # Tabular Q-learning agent & Epsilon-Greedy policy
+│   └── utils/              # Plotting, rolling average helpers, & metrics logger
+├── models/                 # Serialized Q-tables (.npy or .pkl binaries)
+└── plots/                  # Exported learning curves & evaluation charts</pre>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Soundscape & Playlist Section -->
+    <section class="section" id="spotify">
+      <span class="section-label">Workshop Soundscape</span>
+      <h2 class="section-title">🎵 AI Club Workshop <span style="color:var(--color-primary);">Soundscape & Playlist</span></h2>
+      <p class="section-subtitle">Listen to the featured track and workshop playlist while training your Q-learning Pac-Man agent.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+        <!-- Tubthumping Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-music" style="color:var(--color-primary); margin-right:0.4rem;"></i> Featured Track: Chumbawamba – Tubthumping</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/22HYEJveCvykVDHDiEEmjZ?utm_source=generator&si=3d848d36d908433f" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <!-- MSU AI Club Workshop Playlist Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-list-ul" style="color:var(--color-primary); margin-right:0.4rem;"></i> MSU AI Club Workshop Playlist</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3c5WgCEdJatgJeFhgUbVwN?utm_source=generator&theme=0&si=00521ac76fe046f5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        MSU AI Club · Maintained by <a href="https://lowell-monis.github.io/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:none; font-weight:600;">Lowell Monis</a> & the <span style="color:var(--color-primary); font-weight:600;">MSU AI Club Workshop Team</span> · © 2026 Michigan State University AI Club
+      </div>
+      <div class="footer-links">
+        <a href="../../index.html"><i class="fas fa-arrow-left"></i> Workshops Home</a>
+        <a href="https://www.msuaiclub.com/events/df4d51d5-195a-4a8a-bd5e-db9c84133f81" target="_blank" rel="noopener">Event Check-in</a>
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/tree/main/workshops/workshop2" target="_blank" rel="noopener"><i class="fab fa-github"></i> Workshop Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application JS -->
+  <script src="../../app.js"></script>
+</body>
+</html>
