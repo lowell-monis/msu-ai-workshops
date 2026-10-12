@@ -60,7 +60,7 @@
       </p>
 
       <div class="hero-actions">
-        <a id="handout-colab-hero-btn" href="https://colab.research.google.com/" target="_blank" rel="noopener" class="btn btn-solid" title="Open Handout in Google Colab (Colab link coming soon)">
+        <a id="handout-colab-hero-btn" href="https://colab.research.google.com/drive/1APEVyr9mPdAStmGzxu1CRjazJixB_oA4?usp=sharing" target="_blank" rel="noopener" class="btn btn-solid">
           <i class="fas fa-external-link-alt"></i> Open Colab Notebook (Handout)
         </a>
         <a id="solution-colab-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed;" title="Solution unlocks at 7:00 PM">
@@ -97,7 +97,7 @@
               </li>
             </ol>
             <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a id="handout-colab-quickstart-btn" href="https://colab.research.google.com/" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:0.85rem;" title="Open Handout in Google Colab (Colab link coming soon)">
+              <a id="handout-colab-quickstart-btn" href="https://colab.research.google.com/drive/1APEVyr9mPdAStmGzxu1CRjazJixB_oA4?usp=sharing" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:0.85rem;">
                 <i class="fas fa-external-link-alt"></i> Open Handout Colab Notebook
               </a>
               <a id="solution-colab-quickstart-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
@@ -120,9 +120,6 @@
               </a>
               <a id="solution-raw-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
                 <i class="fas fa-lock"></i> Direct Download: Solution Notebook (.ipynb)
-              </a>
-              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" download class="btn btn-ghost" style="font-size:0.85rem;">
-                <i class="fas fa-book-open"></i> Direct Download: Demo Notebook (.ipynb)
               </a>
             </div>
 
@@ -162,11 +159,14 @@ jupyter lab</pre>
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 1</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Binary Target Encoding (TODO 1)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Convert the text <code>diagnosis</code> column in the Wisconsin Breast Cancer dataset to a numerical binary vector:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Convert the text <code>diagnosis</code> column in the Wisconsin Breast Cancer dataset to a numerical binary vector where <code>'M'</code> (Malignant) is encoded as <code>1</code> and <code>'B'</code> (Benign) is encoded as <code>0</code>.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Map 'M' (Malignant) to 1 and 'B' (Benign) to 0
-y = (wdbc_df['diagnosis'] == 'M').astype(int).values</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Extract the diagnosis column from the loaded DataFrame and evaluate the boolean condition for malignancy.</li>
+            <li>Cast the resulting booleans to integer values (0 or 1) as a NumPy array to form your training target vector <code>y</code>.</li>
+            <li>Inspect the resulting class balance across the 569 biopsy samples (357 benign vs. 212 malignant).</li>
+          </ul>
         </div>
 
         <!-- Task 2 -->
@@ -175,12 +175,14 @@ y = (wdbc_df['diagnosis'] == 'M').astype(int).values</pre>
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 2</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Numerically Stable Sigmoid Function (TODO 2)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Implement the logistic sigmoid function with clipping to prevent floating-point exponential overflow:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Implement the standard logistic sigmoid activation function with input bounding to prevent floating-point exponential overflow warnings.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Clip z to [-500, 500] and return 1 / (1 + exp(-z))
-z_clipped = np.clip(z, -500.0, 500.0)
-return 1.0 / (1.0 + np.exp(-z_clipped))</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>During MCMC exploration, candidate coefficient vectors may produce extreme values of the linear predictor <code>z</code>.</li>
+            <li>Clip input values of <code>z</code> to a stable numerical range (such as [-500.0, 500.0]) using <code>np.clip</code> before computing the exponential.</li>
+            <li>Return <code>1.0 / (1.0 + np.exp(-z_clipped))</code> to guarantee probabilities strictly bounded in (0, 1).</li>
+          </ul>
         </div>
 
         <!-- Task 3 -->
@@ -189,12 +191,14 @@ return 1.0 / (1.0 + np.exp(-z_clipped))</pre>
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 3</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Bernoulli Log-Likelihood & Log-Posterior (TODO 3)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Calculate the sum of individual log-likelihoods using <code>np.logaddexp</code> for numerical precision:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Formulate the sum of individual log-likelihoods for independent Bernoulli observations and combine it with the Gaussian prior to evaluate the unnormalized log-posterior.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate sum_{i=1}^n [ y_i * (x_i^T beta) - log(1 + exp(x_i^T beta)) ]
-xb = X_mat @ beta
-return np.sum(y_vec * xb - np.logaddexp(0.0, xb))</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Compute the linear predictor vector <code>xb = X @ beta</code> across all patient observations.</li>
+            <li>Use the numerically robust log-sum-exp trick via <code>np.logaddexp(0.0, xb)</code> to avoid overflow when calculating <code>log(1 + exp(x_i^T &beta;))</code>.</li>
+            <li>Combine the log-likelihood with the independent zero-mean Gaussian prior log-density to return the total log-posterior value.</li>
+          </ul>
         </div>
 
         <!-- Task 4 -->
@@ -203,15 +207,14 @@ return np.sum(y_vec * xb - np.logaddexp(0.0, xb))</pre>
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Metropolis-Hastings Proposal Acceptance Rule (TODO 4)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Compute the log acceptance ratio and accept proposed state $\boldsymbol{\beta}^*$ with probability $\alpha$:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Implement the Metropolis-Hastings acceptance ratio and decision rule for proposed candidate states in the Random Walk sampler.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Compute log_r and implement accept/reject rule
-log_r = log_post_prop - log_post_curr
-if np.log(rng.uniform(0.0, 1.0)) <= log_r:
-    return beta_prop, log_post_prop, True
-else:
-    return beta_curr, log_post_curr, False</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Compute the log acceptance ratio: <code>log_r = log_post_prop - log_post_curr</code>.</li>
+            <li>Sample a uniform random draw <code>u ~ Uniform(0, 1)</code> and test whether <code>log(u) &le; log_r</code>.</li>
+            <li>If accepted, transition to the proposed state; otherwise, retain the current state and record the rejection.</li>
+          </ul>
         </div>
 
         <!-- Task 5 -->
@@ -220,11 +223,14 @@ else:
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 5</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Pilot Chain Proposal Tuning (TODO 5)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Inspect acceptance rates across candidate proposal variances ($\sigma_{\text{prop}}^2 \in [0.5, \dots, 100]$) and select the tuning closest to the optimal 30%–35% Goldilocks efficiency window:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Inspect acceptance rates across candidate proposal variances (from 0.5 to 100) and identify the proposal scale that maximizes MCMC mixing efficiency.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Set optimal proposal variance identified from pilot grid search
-optimal_sigma2_prop = 5.0</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Examine the pilot grid search output table displaying acceptance rates for each tested variance scale.</li>
+            <li>Identify the variance producing an acceptance rate closest to the optimal 30%–35% theoretical Goldilocks window for multivariate random walks.</li>
+            <li>Set <code>optimal_sigma2_prop</code> to your selected variance scale to calibrate the full production MCMC sampler.</li>
+          </ul>
         </div>
 
         <!-- Task 6 -->
@@ -233,12 +239,14 @@ optimal_sigma2_prop = 5.0</pre>
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 6</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Posterior Inclusion Probabilities via SSVS (TODO 6)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Calculate empirical inclusion probabilities from the post-burnin indicator chain and filter features exceeding the Median Probability Model cutoff ($\text{PIP} \ge 0.5$):
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Calculate empirical Posterior Inclusion Probabilities (PIPs) from the post-burnin indicator chain and filter features exceeding the Median Probability Model threshold.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate pip as sample mean of z_draws along axis 0
-pip = np.mean(z_draws, axis=0)
-selected_features = pip_df[pip_df['Inclusion_Probability'] >= 0.5]['Feature'].tolist()</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Compute PIP for each predictor as the sample mean of the binary indicator draws along the iteration axis after discarding burn-in iterations.</li>
+            <li>Assemble a sorted ranking of all 30 cytology features by their posterior inclusion probabilities.</li>
+            <li>Filter for biomarkers that satisfy the Barbieri & Berger Median Probability Model criterion (PIP &ge; 0.50).</li>
+          </ul>
         </div>
 
         <!-- Task 7 -->
@@ -247,14 +255,14 @@ selected_features = pip_df[pip_df['Inclusion_Probability'] >= 0.5]['Feature'].to
             <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 7</span>
             <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Clinical Odds Ratios & Decision Reflection (TODO 7)</h3>
           </div>
-          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
-            Transform effective logit coefficients to multiplicative Odds Ratios ($\text{OR}_j = \exp(\beta_j)$) with 95% Credible Intervals and write your analysis for the 3 clinical reflection prompts:
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.5rem;">
+            Transform effective logit coefficients to multiplicative Odds Ratios (OR = exp(&beta;)) with 95% Credible Intervals, and complete the three clinical reflection prompts.
           </p>
-          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate posterior mean and 95% credible intervals for OR
-or_draws = np.exp(beta_eff_draws[:, 1:])
-post_mean_or = np.mean(or_draws, axis=0)
-ci_lower_or = np.percentile(or_draws, 2.5, axis=0)
-ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
+          <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.6;">
+            <li>Exponentiate posterior coefficient draws to calculate posterior means and 2.5% / 97.5% percentiles for clinical Odds Ratios.</li>
+            <li>Reflect on how unit standard-deviation increases in selected biomarkers multiply the relative odds of tumor malignancy.</li>
+            <li>Answer the guided analytical prompts regarding parameter shrinkage, model parsimony, and how posterior credible intervals safeguard patient care.</li>
+          </ul>
         </div>
 
       </div>
@@ -271,7 +279,7 @@ ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
           <div style="max-width:800px;">
             <h3 style="color:var(--text-bright); font-size:1.25rem; margin-bottom:0.5rem;">Daily Demand Forecasting via Zellner's Invariant <em>g</em>-Prior</h3>
             <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:1rem;">
-              This complete instructional document demonstrates exact composition sampling (no MCMC convergence required) and Gibbs variable selection across $2^{12} = 4,096$ candidate models, explaining the link between objective Zellner priors and modern packaged estimators like <code>scikit-learn</code>'s <code>BayesianRidge</code>.
+              This complete instructional document demonstrates exact composition sampling (no MCMC convergence required) and Gibbs variable selection across 2<sup>12</sup> = 4,096 candidate models, explaining the link between objective Zellner priors and modern packaged estimators like <code>scikit-learn</code>'s <code>BayesianRidge</code>.
             </p>
             <div class="tag-cloud" style="margin-bottom:1.25rem;">
               <span class="tag-pill">Zellner's g-Prior</span>
@@ -281,7 +289,10 @@ ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
               <span class="tag-pill">Traceplots & KDE</span>
             </div>
             <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" download class="btn btn-solid" style="font-size:0.85rem;">
+              <a href="https://colab.research.google.com/drive/16P7LmLPzAhLuts6vc0GlPQHqYRfbfz20?usp=sharing" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:0.85rem;">
+                <i class="fab fa-google"></i> Open Demo in Google Colab
+              </a>
+              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" download class="btn btn-ghost" style="font-size:0.85rem;">
                 <i class="fas fa-download"></i> Direct Download: Demo Notebook (.ipynb)
               </a>
               <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.85rem;">
@@ -297,7 +308,6 @@ ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
     <section class="section" id="spotify">
       <span class="section-label">Workshop Soundscape</span>
       <h2 class="section-title">🎵 AI Club Workshop <span style="color:var(--color-primary);">Soundscape & Playlist</span></h2>
-      <p class="section-subtitle" style="max-width:100%;">Listen to the featured track while exploring Bayesian posterior distributions.</p>
 
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
         <!-- Featured Track Embed -->
@@ -340,7 +350,7 @@ ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
       const UNLOCK_TIMESTAMP = new Date('2026-10-12T19:00:00-04:00').getTime();
       
       // Solution URLs
-      const COLAB_SOLUTION_URL = '#'; // Awaiting Colab drive link
+      const COLAB_SOLUTION_URL = 'https://colab.research.google.com/drive/1jDTC8LvjBDXnJoW1tXxBChUnFiaIo_H5?usp=sharing';
       const RAW_SOLUTION_URL = 'https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_logistic_regression_solution.ipynb';
 
       function updateLockState() {
