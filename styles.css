@@ -297,6 +297,10 @@ body {
   font-weight: 700;
 }
 
+.card-num.discussion {
+  color: #fbbf24;
+}
+
 .card-date {
   font-size: 0.8rem;
   color: var(--text-muted);

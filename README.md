@@ -58,7 +58,7 @@ body {
 |---|---|---|---|---|---|
 | **[`workshops/workshop1/`](workshops/workshop1/)** | *The Art of the Data Lifecycle: Palmer Penguins ML Classifier* | Lowell Monis | Sept 14, 2026 @ STEM 3202 | Data Lifecycle, Random Forest, Imputation, CLI Inference | `penguin_model.pkl` |
 | **[`workshops/workshop2/`](workshops/workshop2/)** | *The Mechanics of Motivation: Pac-Man Agent via RL* | Carson Breissinger | Sept 28, 2026 @ STEM 3202 | Reinforcement Learning, Q-Learning, Epsilon-Greedy, Reward Shaping | `RL_PacMan_Q_Learning_Workshop.ipynb` |
-| **[`workshops/workshop3/`](workshops/workshop3/)** | *The Geopolitics of Compute: The AI Energy Crisis* | Ishan Sinha & Lowell Monis | Oct 5, 2026 @ STEM 3202 | Compute Geopolitics, Chip War, Energy Crisis, Nuclear Power | Slide Deck (PDF) |
+| **[`workshops/workshop3/`](workshops/workshop3/)** | 💡 *The Geopolitics of Compute: The AI Energy Crisis* (Discussion) | Ishan Sinha & Lowell Monis | Oct 5, 2026 @ STEM 3202 | Compute Geopolitics, Chip War, Energy Crisis, Nuclear Power | Slide Deck (PDF) |
 | **[`workshops/workshop4/`](workshops/workshop4/)** | *Rethinking Uncertainty: A Bayesian Perspective on Machine Learning* | Lowell Monis & Ishan Sinha | Oct 12, 2026 @ EB 2400 | Bayesian ML, Zellner's g-Prior, Metropolis-Hastings, SSVS | `bayesian_logistic_regression_artifact.ipynb` |
 
 *Detailed instructions on running specific workshop pipelines are located in their respective subdirectories (e.g., [`workshops/workshop1/README.md`](workshops/workshop1/README.md)).*
