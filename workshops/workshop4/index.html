@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MSU AI Club | Workshop 04: Rethinking Uncertainty: A Bayesian Perspective on Machine Learning</title>
+  <meta name="description" content="MSU AI Club Workshop 04: Rethinking Uncertainty: A Bayesian Perspective on Machine Learning. Master Bayesian linear regression with Zellner's g-prior, exact composition sampling, Metropolis-Hastings MCMC, and Stochastic Search Variable Selection (SSVS).">
+  
+  <!-- Rubik Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MSU AI Club | Workshop 04: Rethinking Uncertainty: A Bayesian Perspective on Machine Learning">
+  <meta property="og:description" content="Master Bayesian linear regression with Zellner's g-prior, exact composition sampling, Metropolis-Hastings MCMC, and Stochastic Search Variable Selection (SSVS).">
+  <meta property="og:image" content="./cover.jpg">
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+  <!-- Background Particle Network -->
+  <div id="particles-js"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="header-inner" style="max-width:100%; padding:0 3rem;">
+      <a href="../../index.html" class="wordmark">
+        <i class="fas fa-chevron-left" style="font-size:0.8rem; color:var(--color-primary);"></i> MSU AI Club <span class="wordmark-badge">Workshop 04</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html" class="nav-link"><i class="fas fa-home"></i> Workshops Home</a>
+        <a href="#quickstart" class="nav-link">Quickstart</a>
+        <a href="#tasks" class="nav-link">Task Guide</a>
+        <a href="#demo" class="nav-link">Instructional Demo</a>
+        <a href="#spotify" class="nav-link">Soundscape</a>
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/tree/main/workshops/workshop4" target="_blank" class="nav-link" rel="noopener">
+          <i class="fab fa-github"></i> Workshop Repo
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container" style="max-width:100%; padding:3rem 3rem;">
+    
+    <!-- Workshop 04 Hero Header -->
+    <section class="hero-wrapper" id="hero">
+      <div class="hero-meta">
+        <span class="hero-label">WORKSHOP 04 · OCTOBER 12, 2026 @ 6:00 PM · EB 2400</span>
+      </div>
+      
+      <h1 class="hero-name" style="max-width:100%;">Rethinking Uncertainty: <span style="color:var(--color-primary);">A Bayesian Perspective on Machine Learning</span></h1>
+      
+      <p class="hero-headline" style="max-width:100%;">
+        While modern deep learning and large-scale AI models deliver unprecedented predictive power, they frequently struggle with uncalibrated confidence, opaque black-box dynamics, and a lack of reliable uncertainty estimation. This workshop examines how a Bayesian perspective offers a principled framework to quantify model uncertainty, incorporate domain priors, and build safer, more trustworthy systems.
+      </p>
+
+      <p class="hero-tagline" style="max-width:100%;">
+        ⚡ <strong>Workshop Artifacts:</strong> Work through the instructional demonstration on Bayesian linear regression with Zellner's <em>g</em>-prior, then complete the guided tasks in Bayesian logistic regression with Metropolis-Hastings MCMC!
+      </p>
+
+      <div class="hero-actions">
+        <a id="handout-colab-hero-btn" href="https://colab.research.google.com/" target="_blank" rel="noopener" class="btn btn-solid" title="Open Handout in Google Colab (Colab link coming soon)">
+          <i class="fas fa-external-link-alt"></i> Open Colab Notebook (Handout)
+        </a>
+        <a id="solution-colab-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed;" title="Solution unlocks at 7:00 PM">
+          <i class="fas fa-lock"></i> Solution Notebook (Locked)
+        </a>
+        <a href="https://www.msuaiclub.com/events/41beb323-3591-43e0-8e1c-1d6031c2546e" target="_blank" rel="noopener" class="btn btn-accent">
+          <i class="fas fa-ticket-alt"></i> Workshop Check-in
+        </a>
+        <a href="#demo" class="btn btn-ghost">
+          <i class="fas fa-book-open"></i> Linear Regression Demo
+        </a>
+      </div>
+    </section>
+
+    <!-- Quickstart & Reproduction Guide Section -->
+    <section class="section" id="quickstart">
+      <span class="section-label">Execution & Workflow Guide</span>
+      <h2 class="section-title">Quickstart: Choose Your Setup & Open Notebook</h2>
+      <p class="section-subtitle" style="max-width:100%;">Work directly online in Google Colab or run locally using JupyterLab, Anaconda, or MSU DECS JupyterHub.</p>
+
+      <div class="simulator-workspace" style="padding:2rem; width:100%;">
+        <div style="line-height:1.8; font-size:0.95rem;">
+          
+          <!-- Option A: Google Colab -->
+          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fab fa-google" style="margin-right:0.4rem;"></i> Option A: Run in Google Colab (Recommended)</h3>
+          <div style="background:#080b12; border:1px solid #1e293b; padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.75rem;">
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Important Google Colab Instructions:</p>
+            <ol style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.7;">
+              <li style="margin-bottom:0.5rem;">
+                <strong>Use a Personal Google Account (Not MSU Account)</strong>: Do <em>not</em> open Colab while signed into your <code>@msu.edu</code> Google account due to organizational sharing policies. If you already opened the link using your MSU account, open the link again in an <strong>Incognito Window</strong> or switch to your personal Google account.
+              </li>
+              <li>
+                <strong>Save a Copy to Your Google Drive First</strong>: Once opened, click <code>File</code> ➔ <code>Save a copy in Drive</code>. Work inside your personal saved copy so your edits and exercise code are preserved.
+              </li>
+            </ol>
+            <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a id="handout-colab-quickstart-btn" href="https://colab.research.google.com/" target="_blank" rel="noopener" class="btn btn-solid" style="font-size:0.85rem;" title="Open Handout in Google Colab (Colab link coming soon)">
+                <i class="fas fa-external-link-alt"></i> Open Handout Colab Notebook
+              </a>
+              <a id="solution-colab-quickstart-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
+                <i class="fas fa-lock"></i> Solution Colab Notebook (Locked)
+              </a>
+            </div>
+          </div>
+
+          <!-- Option B: Local JupyterLab, Anaconda, or MSU DECS JupyterHub -->
+          <h3 style="color:var(--color-primary); font-size:1.15rem; margin-bottom:0.75rem;"><i class="fas fa-desktop" style="margin-right:0.4rem;"></i> Option B: Run via Local JupyterLab, Anaconda, or MSU JupyterHub</h3>
+          <div style="background:#080b12; border:1px solid #1e293b; padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem;">
+            
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Step 1: Direct Download Workshop Notebook Files (.ipynb)</p>
+            <p style="color:var(--text-muted); margin-bottom:0.75rem;">
+              Click below to directly download the raw <code>.ipynb</code> notebook files to your computer without visiting GitHub:
+            </p>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_logistic_regression_artifact.ipynb" download class="btn btn-solid" style="font-size:0.85rem;">
+                <i class="fas fa-download"></i> Direct Download: Handout Notebook (.ipynb)
+              </a>
+              <a id="solution-raw-btn" class="btn btn-ghost" style="opacity:0.65; cursor:not-allowed; font-size:0.85rem;" title="Solution unlocks at 7:00 PM">
+                <i class="fas fa-lock"></i> Direct Download: Solution Notebook (.ipynb)
+              </a>
+              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" download class="btn btn-ghost" style="font-size:0.85rem;">
+                <i class="fas fa-book-open"></i> Direct Download: Demo Notebook (.ipynb)
+              </a>
+            </div>
+
+            <p style="color:var(--text-bright); font-weight:600; margin-bottom:0.5rem;">Step 2: Choose Your Execution Environment</p>
+            
+            <ul style="padding-left:1.2rem; color:var(--text-main); font-size:0.9rem; line-height:1.7; margin-bottom:0.5rem;">
+              <li style="margin-bottom:0.75rem;">
+                <strong>1. Standard Python / Terminal</strong>: Install required packages and launch JupyterLab:
+                <pre style="background:#040406; padding:0.75rem 1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); margin-top:0.35rem; margin-bottom:0.5rem; overflow-x:auto;">pip install numpy scipy pandas matplotlib seaborn scikit-learn statsmodels jupyterlab
+jupyter lab</pre>
+              </li>
+              <li style="margin-bottom:0.75rem;">
+                <strong>2. Anaconda Navigator</strong>: If you use Anaconda, launch JupyterLab or Jupyter Notebook from Anaconda Navigator, and open your downloaded <code>.ipynb</code> file.
+              </li>
+              <li>
+                <strong>3. MSU Engineering DECS JupyterHub (For EGR Students)</strong>: Engineering students or attendees with an active DECS account can log into <a href="https://jupyterhub.egr.msu.edu/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:underline;">MSU EGR JupyterHub</a> and upload the downloaded <code>.ipynb</code> file directly into their cloud environment.
+              </li>
+            </ul>
+
+          </div>
+
+          <!-- Note alert box -->
+          <div style="background:#100d04; border:1px solid #f59e0b; padding:0.75rem 1rem; border-radius:var(--radius-sm); margin-bottom:1rem; font-size:0.88rem; color:#f59e0b;">
+            💡 <strong>Automatic Data Downloading:</strong> All notebooks automatically download their required datasets directly inside Python via standard libraries. You do not need to download or extract external zip files manually!
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Tasks & Step-by-Step Instructions Section -->
+    <section class="section" id="tasks">
+      <span class="section-label">Step-by-Step Project Guide</span>
+      <h2 class="section-title">Workshop Tasks & <span style="color:var(--color-primary);">Milestone Instructions</span></h2>
+      <p class="section-subtitle" style="max-width:100%;">Follow these instructions step-by-step to complete the 7 <code># TODO:</code> milestone blocks in your Bayesian logistic regression notebook.</p>
+
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2rem;">
+        
+        <!-- Task 1 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 1</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Binary Target Encoding (TODO 1)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Convert the text <code>diagnosis</code> column in the Wisconsin Breast Cancer dataset to a numerical binary vector:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Map 'M' (Malignant) to 1 and 'B' (Benign) to 0
+y = (wdbc_df['diagnosis'] == 'M').astype(int).values</pre>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 2</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Numerically Stable Sigmoid Function (TODO 2)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Implement the logistic sigmoid function with clipping to prevent floating-point exponential overflow:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Clip z to [-500, 500] and return 1 / (1 + exp(-z))
+z_clipped = np.clip(z, -500.0, 500.0)
+return 1.0 / (1.0 + np.exp(-z_clipped))</pre>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 3</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Bernoulli Log-Likelihood & Log-Posterior (TODO 3)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Calculate the sum of individual log-likelihoods using <code>np.logaddexp</code> for numerical precision:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate sum_{i=1}^n [ y_i * (x_i^T beta) - log(1 + exp(x_i^T beta)) ]
+xb = X_mat @ beta
+return np.sum(y_vec * xb - np.logaddexp(0.0, xb))</pre>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 4</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Metropolis-Hastings Proposal Acceptance Rule (TODO 4)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Compute the log acceptance ratio and accept proposed state $\boldsymbol{\beta}^*$ with probability $\alpha$:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Compute log_r and implement accept/reject rule
+log_r = log_post_prop - log_post_curr
+if np.log(rng.uniform(0.0, 1.0)) <= log_r:
+    return beta_prop, log_post_prop, True
+else:
+    return beta_curr, log_post_curr, False</pre>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 5</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Pilot Chain Proposal Tuning (TODO 5)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Inspect acceptance rates across candidate proposal variances ($\sigma_{\text{prop}}^2 \in [0.5, \dots, 100]$) and select the tuning closest to the optimal 30%–35% Goldilocks efficiency window:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Set optimal proposal variance identified from pilot grid search
+optimal_sigma2_prop = 5.0</pre>
+        </div>
+
+        <!-- Task 6 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 6</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Posterior Inclusion Probabilities via SSVS (TODO 6)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Calculate empirical inclusion probabilities from the post-burnin indicator chain and filter features exceeding the Median Probability Model cutoff ($\text{PIP} \ge 0.5$):
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate pip as sample mean of z_draws along axis 0
+pip = np.mean(z_draws, axis=0)
+selected_features = pip_df[pip_df['Inclusion_Probability'] >= 0.5]['Feature'].tolist()</pre>
+        </div>
+
+        <!-- Task 7 -->
+        <div class="workshop-card" style="padding:1.5rem;">
+          <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+            <span style="background:var(--color-primary); color:#000; font-weight:800; padding:0.25rem 0.6rem; border-radius:4px; font-size:0.85rem;">TASK 7</span>
+            <h3 style="color:var(--text-bright); font-size:1.15rem; margin:0;">Clinical Odds Ratios & Decision Reflection (TODO 7)</h3>
+          </div>
+          <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:0.75rem;">
+            Transform effective logit coefficients to multiplicative Odds Ratios ($\text{OR}_j = \exp(\beta_j)$) with 95% Credible Intervals and write your analysis for the 3 clinical reflection prompts:
+          </p>
+          <pre style="background:#040406; padding:1rem; border-radius:var(--radius-sm); font-family:var(--font-code); color:var(--color-primary); border:1px solid var(--border-color); overflow-x:auto;"># TODO: Calculate posterior mean and 95% credible intervals for OR
+or_draws = np.exp(beta_eff_draws[:, 1:])
+post_mean_or = np.mean(or_draws, axis=0)
+ci_lower_or = np.percentile(or_draws, 2.5, axis=0)
+ci_upper_or = np.percentile(or_draws, 97.5, axis=0)</pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Instructional Demonstration Section -->
+    <section class="section" id="demo">
+      <span class="section-label">Masterclass & Theoretical Reference</span>
+      <h2 class="section-title">Instructional Demo: <span style="color:var(--color-primary);">Zellner's <em>g</em>-Prior & Gibbs Selection</span></h2>
+      <p class="section-subtitle" style="max-width:100%;">Explore how conjugate Bayesian regression solves multicollinearity in logistics demand forecasting, followed by packaged modern alternatives.</p>
+
+      <div class="workshop-card" style="padding:2rem; margin-top:1.5rem;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1.5rem;">
+          <div style="max-width:800px;">
+            <h3 style="color:var(--text-bright); font-size:1.25rem; margin-bottom:0.5rem;">Daily Demand Forecasting via Zellner's Invariant <em>g</em>-Prior</h3>
+            <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.6; margin-bottom:1rem;">
+              This complete instructional document demonstrates exact composition sampling (no MCMC convergence required) and Gibbs variable selection across $2^{12} = 4,096$ candidate models, explaining the link between objective Zellner priors and modern packaged estimators like <code>scikit-learn</code>'s <code>BayesianRidge</code>.
+            </p>
+            <div class="tag-cloud" style="margin-bottom:1.25rem;">
+              <span class="tag-pill">Zellner's g-Prior</span>
+              <span class="tag-pill">Composition Sampling</span>
+              <span class="tag-pill">Gibbs BMA</span>
+              <span class="tag-pill">BayesianRidge</span>
+              <span class="tag-pill">Traceplots & KDE</span>
+            </div>
+            <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <a href="https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" download class="btn btn-solid" style="font-size:0.85rem;">
+                <i class="fas fa-download"></i> Direct Download: Demo Notebook (.ipynb)
+              </a>
+              <a href="https://github.com/lowell-monis/msu-ai-workshops/blob/main/workshops/workshop4/bayesian_linear_regression_demo.ipynb" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.85rem;">
+                <i class="fab fa-github"></i> View Notebook on GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workshop Soundscape & Playlist Section -->
+    <section class="section" id="spotify">
+      <span class="section-label">Workshop Soundscape</span>
+      <h2 class="section-title">🎵 AI Club Workshop <span style="color:var(--color-primary);">Soundscape & Playlist</span></h2>
+      <p class="section-subtitle" style="max-width:100%;">Listen to the featured track while exploring Bayesian posterior distributions.</p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+        <!-- Featured Track Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-music" style="color:var(--color-primary); margin-right:0.4rem;"></i> Featured Track: The Beatles – Yesterday</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4E5rL7YL0hVUPqeMSpjEF2?utm_source=generator&si=900f691a59c84485" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <!-- MSU AI Club Workshop Playlist Embed -->
+        <div>
+          <h3 style="color:var(--text-bright); font-size:1.05rem; margin-bottom:0.75rem;"><i class="fas fa-list-ul" style="color:var(--color-primary); margin-right:0.4rem;"></i> MSU AI Club Workshop Playlist</h3>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3c5WgCEdJatgJeFhgUbVwN?utm_source=generator&theme=0&si=00521ac76fe046f5" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner" style="max-width:100%; padding:0 3rem;">
+      <div>
+        MSU AI Club · Maintained by <a href="https://lowell-monis.github.io/" target="_blank" rel="noopener" style="color:var(--color-primary); text-decoration:none; font-weight:600;">Lowell Monis</a> & the <span style="color:var(--color-primary); font-weight:600;">MSU AI Club Workshop Team</span> · © 2026 Michigan State University AI Club
+      </div>
+      <div class="footer-links">
+        <a href="../../index.html"><i class="fas fa-arrow-left"></i> Workshops Home</a>
+        <a href="https://www.msuaiclub.com/events/41beb323-3591-43e0-8e1c-1d6031c2546e" target="_blank" rel="noopener">Event Check-in</a>
+        <a href="https://github.com/lowell-monis/msu-ai-workshops/tree/main/workshops/workshop4" target="_blank" rel="noopener"><i class="fab fa-github"></i> Workshop Repo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application JS -->
+  <script src="../../app.js"></script>
+
+  <!-- Auto Time-Lock Script for Solution Release (Timed to 7:00 PM Tonight) -->
+  <script>
+    (function initSolutionTimeLock() {
+      // Set solution release timestamp (October 12, 2026 @ 7:00 PM EDT)
+      const UNLOCK_TIMESTAMP = new Date('2026-10-12T19:00:00-04:00').getTime();
+      
+      // Solution URLs
+      const COLAB_SOLUTION_URL = '#'; // Awaiting Colab drive link
+      const RAW_SOLUTION_URL = 'https://raw.githubusercontent.com/lowell-monis/msu-ai-workshops/main/workshops/workshop4/bayesian_logistic_regression_solution.ipynb';
+
+      function updateLockState() {
+        const now = Date.now();
+        const heroBtn = document.getElementById('solution-colab-btn');
+        const colabQuickBtn = document.getElementById('solution-colab-quickstart-btn');
+        const rawBtn = document.getElementById('solution-raw-btn');
+
+        if (now >= UNLOCK_TIMESTAMP) {
+          // Unlocked state
+          if (heroBtn) {
+            heroBtn.href = COLAB_SOLUTION_URL !== '#' ? COLAB_SOLUTION_URL : RAW_SOLUTION_URL;
+            if (COLAB_SOLUTION_URL !== '#') heroBtn.target = '_blank';
+            else heroBtn.download = '';
+            heroBtn.rel = 'noopener';
+            heroBtn.classList.remove('btn-ghost');
+            heroBtn.classList.add('btn-solid');
+            heroBtn.style.opacity = '1';
+            heroBtn.style.cursor = 'pointer';
+            heroBtn.innerHTML = '<i class="fas fa-key" style="color:#f59e0b;"></i> Open Solution Notebook';
+            heroBtn.title = 'Solution unlocked!';
+          }
+
+          if (colabQuickBtn) {
+            colabQuickBtn.href = COLAB_SOLUTION_URL !== '#' ? COLAB_SOLUTION_URL : RAW_SOLUTION_URL;
+            if (COLAB_SOLUTION_URL !== '#') colabQuickBtn.target = '_blank';
+            else colabQuickBtn.download = '';
+            colabQuickBtn.rel = 'noopener';
+            colabQuickBtn.classList.remove('btn-ghost');
+            colabQuickBtn.classList.add('btn-solid');
+            colabQuickBtn.style.opacity = '1';
+            colabQuickBtn.style.cursor = 'pointer';
+            colabQuickBtn.innerHTML = '<i class="fas fa-key" style="color:#f59e0b;"></i> Open Solution Notebook';
+            colabQuickBtn.title = 'Solution unlocked!';
+          }
+
+          if (rawBtn) {
+            rawBtn.href = RAW_SOLUTION_URL;
+            rawBtn.download = '';
+            rawBtn.classList.remove('btn-ghost');
+            rawBtn.classList.add('btn-solid');
+            rawBtn.style.opacity = '1';
+            rawBtn.style.cursor = 'pointer';
+            rawBtn.innerHTML = '<i class="fas fa-download"></i> Direct Download: Solution Notebook (.ipynb)';
+            rawBtn.title = 'Solution unlocked!';
+          }
+        } else {
+          // Locked countdown state
+          const diffMs = UNLOCK_TIMESTAMP - now;
+          const hours = Math.floor(diffMs / (1000 * 60 * 60));
+          const mins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+          const timeText = hours > 0 ? `${hours}h ${mins}m` : `${mins}m`;
+
+          if (heroBtn) {
+            heroBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Notebook (Unlocks in ${timeText})`;
+          }
+          if (colabQuickBtn) {
+            colabQuickBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Notebook (Unlocks in ${timeText})`;
+          }
+          if (rawBtn) {
+            rawBtn.innerHTML = `<i class="fas fa-lock"></i> Solution Download (Unlocks in ${timeText})`;
+          }
+        }
+      }
+
+      updateLockState();
+      setInterval(updateLockState, 30000);
+    })();
+  </script>
+</body>
+</html>
