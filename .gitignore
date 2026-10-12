@@ -8,8 +8,8 @@ env/
 venv/
 ENV/
 
-# OS & Editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
+# Data files (Never committed to Git)
+data/
+*.csv
+*.data
+*.zip
